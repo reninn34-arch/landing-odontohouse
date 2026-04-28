@@ -65,9 +65,52 @@ export const Hero = () => {
       </div>
 
       {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none">
-        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block">
-          <path d="M0 60L1440 60L1440 0C1100 35 700 55 360 35C220 27 80 15 0 0L0 60Z" fill="white" />
+      {/* Animated Bottom wave - Extra tall viewBox to push the wave to the very bottom for an infinite feel */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none translate-y-[1px]">
+        <svg
+          viewBox="0 -240 1440 360"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-[120px] md:h-[200px] lg:h-[280px] xl:h-[360px] block"
+        >
+          {/* Layer 1 (Back) */}
+          <g>
+            <animateTransform 
+              attributeName="transform" 
+              type="translate" 
+              from="0 0" 
+              to="-1440 0" 
+              dur="25s" 
+              repeatCount="indefinite" 
+            />
+            <path d="M0,50 C360,100 1080,0 1440,50 C1800,100 2520,0 2880,50 V120 H0 Z" fill="white" opacity="0.3" />
+          </g>
+
+          {/* Layer 2 (Middle) */}
+          <g>
+            <animateTransform 
+              attributeName="transform" 
+              type="translate" 
+              from="0 0" 
+              to="-960 0" 
+              dur="18s" 
+              repeatCount="indefinite" 
+            />
+            <path d="M0,65 C240,110 720,20 960,65 C1200,110 1680,20 1920,65 C2160,110 2640,20 2880,65 V120 H0 Z" fill="white" opacity="0.6" />
+          </g>
+
+          {/* Layer 3 (Front) */}
+          <g>
+            <animateTransform 
+              attributeName="transform" 
+              type="translate" 
+              from="0 0" 
+              to="-720 0" 
+              dur="12s" 
+              repeatCount="indefinite" 
+            />
+            <path d="M0,80 C180,115 540,45 720,80 C900,115 1260,45 1440,80 C1620,115 1980,45 2160,80 C2340,115 2700,45 2880,80 V120 H0 Z" fill="white" />
+          </g>
         </svg>
       </div>
     </section>
