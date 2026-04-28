@@ -80,7 +80,7 @@ export const TrustBar = () => {
       icon: <Users className="w-7 h-7" />,
       target: 500,
       suffix: "+",
-      label: "US Patients",
+      label: t.trustBar.usPatients,
       duration: 1600,
     },
     {
@@ -94,7 +94,7 @@ export const TrustBar = () => {
       icon: <Award className="w-7 h-7" />,
       target: 10,
       suffix: "+",
-      label: "Years Experience",
+      label: t.trustBar.yearsExperience,
       duration: 1200,
     },
     {
@@ -102,7 +102,7 @@ export const TrustBar = () => {
       // "3-5" is a range, keep as static string
       target: "3-5" as const,
       suffix: "",
-      label: "Days Treatment",
+      label: t.trustBar.daysTreatment,
       duration: 1000,
     },
   ];
@@ -138,7 +138,7 @@ export const TrustBar = () => {
           }}
         >
           <span className="text-xs text-gray-500 font-semibold uppercase tracking-widest mr-4">
-            Our Materials &amp; Partners
+            {t.trustBar.materialsTitle}
           </span>
           {["Invisalign", "3M", "Straumann", "Dentsply"].map((brand) => (
             <span

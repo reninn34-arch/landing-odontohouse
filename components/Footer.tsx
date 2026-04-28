@@ -7,7 +7,7 @@ import { MapPin, Phone, Mail, CheckCircle, MessageCircle } from "lucide-react";
 const WA_NUMBER = "593990904443";
 
 export const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", treatment: "" });
   const [sent, setSent] = useState(false);
 
@@ -18,11 +18,9 @@ export const Footer = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const treatment = form.treatment || t.footer.treatmentOptions[0];
-    const message =
-      `Hello! I'd like to request a free quote from Odonto House.\n\n` +
-      `👤 *Name:* ${form.name}\n` +
-      `📧 *Email:* ${form.email}\n` +
-      `🦷 *Treatment:* ${treatment}`;
+    const message = language === "es"
+      ? `¡Hola! Me gustaría solicitar una cotización gratuita de Odonto House.\n\n👤 *Nombre:* ${form.name}\n📧 *Email:* ${form.email}\n🦷 *Tratamiento:* ${treatment}`
+      : `Hello! I'd like to request a free quote from Odonto House.\n\n👤 *Name:* ${form.name}\n📧 *Email:* ${form.email}\n🦷 *Treatment:* ${treatment}`;
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/${WA_NUMBER}?text=${encoded}`, "_blank", "noreferrer");
     setSent(true);
@@ -42,15 +40,15 @@ export const Footer = () => {
             <div className="space-y-4 mb-8 text-gray-300">
               <div className="flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-[var(--color-brand-teal)]" />
-                <span>Av. las Aguas 1106 entre Jiguas y Laureles, Guayaquil</span>
+                <span>{t.footer.address}</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[var(--color-brand-teal)]" />
-                <span>+593 99 090 4443 (WhatsApp)</span>
+                <span>{t.footer.phoneText}</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[var(--color-brand-teal)]" />
-                <span>elenazbm@hotmail.com</span>
+                <span>{t.footer.emailText}</span>
               </div>
             </div>
 
@@ -71,10 +69,10 @@ export const Footer = () => {
 
           {/* Contact Form */}
           <div className="bg-white text-[var(--color-brand-blue-dark)] p-8 rounded-2xl shadow-xl">
-            <h3 className="text-2xl font-bold mb-1">Request Your Free Quote</h3>
+            <h3 className="text-2xl font-bold mb-1">{t.footer.requestQuote}</h3>
             <p className="text-sm text-gray-500 mb-6 flex items-center gap-1.5">
               <MessageCircle className="w-4 h-4 text-green-500" />
-              We&rsquo;ll reply instantly via WhatsApp
+              {t.footer.replyInstantly}
             </p>
 
             <form className="space-y-4" onSubmit={handleSubmit}>
@@ -87,7 +85,7 @@ export const Footer = () => {
                   value={form.name}
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-teal)] transition-colors"
-                  placeholder="John Doe"
+                  placeholder={t.footer.placeholderName}
                 />
               </div>
               <div>
@@ -99,7 +97,7 @@ export const Footer = () => {
                   value={form.email}
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-teal)] transition-colors"
-                  placeholder="john@example.com"
+                  placeholder={t.footer.placeholderEmail}
                 />
               </div>
 
@@ -129,7 +127,7 @@ export const Footer = () => {
                 {sent ? (
                   <>
                     <CheckCircle className="w-5 h-5" />
-                    WhatsApp opened — we&apos;ll reply soon!
+                    {t.footer.whatsappOpened}
                   </>
                 ) : (
                   <>
@@ -184,7 +182,7 @@ export const Footer = () => {
             </a>
           </div>
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Odonthouse Dental Clinic. All rights reserved.
+            &copy; {new Date().getFullYear()} {t.footer.allRightsReserved}
           </p>
         </div>
       </div>

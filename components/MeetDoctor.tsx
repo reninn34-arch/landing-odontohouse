@@ -11,9 +11,9 @@ export const MeetDoctor = () => {
   const { ref, inView } = useInView(0.15);
 
   const credentials = [
-    { icon: <Star className="w-5 h-5" />, text: "10+ Years in Aesthetic Dentistry" },
-    { icon: <Languages className="w-5 h-5" />, text: "Fluent English & Spanish" },
-    { icon: <ShieldCheck className="w-5 h-5" />, text: "US-Standard Techniques & Materials" },
+    { icon: <Star className="w-5 h-5" />, text: t.doctor.cred1 },
+    { icon: <Languages className="w-5 h-5" />, text: t.doctor.cred2 },
+    { icon: <ShieldCheck className="w-5 h-5" />, text: t.doctor.cred3 },
   ];
 
   return (
@@ -47,8 +47,8 @@ export const MeetDoctor = () => {
                 transition: "opacity 0.6s ease 0.4s, transform 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.4s",
               }}
             >
-              <div className="text-3xl font-black">10+</div>
-              <div className="text-xs font-bold uppercase tracking-wider">Years Exp.</div>
+              <div className="text-3xl font-black">{t.doctor.yearsExpValue}</div>
+              <div className="text-xs font-bold uppercase tracking-wider">{t.doctor.yearsExpLabel}</div>
             </div>
             <div
               className="absolute top-8 -left-4 w-1.5 rounded-full bg-[var(--color-brand-gold)]"
@@ -68,7 +68,7 @@ export const MeetDoctor = () => {
               transition: "opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s",
             }}
           >
-            <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">The Specialist</span>
+            <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.doctor.specialist}</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-2">
               {t.doctor.meet}
             </h2>
@@ -95,12 +95,12 @@ export const MeetDoctor = () => {
             </div>
 
             <a
-              href="https://wa.me/593990904443?text=Hi%20Dr.%20Elena!%20I'd%20like%20to%20schedule%20a%20virtual%20consultation."
+              href={`https://wa.me/593990904443?text=${t.doctor.whatsappMsg}`}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-3 bg-[var(--color-brand-blue-dark)] text-white px-8 py-4 rounded-full font-bold hover:bg-[var(--color-brand-gold)] hover:text-[var(--color-brand-blue-dark)] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
-              Book a Consultation with Dr. Elena
+              {t.doctor.bookConsultation}
             </a>
           </div>
         </div>

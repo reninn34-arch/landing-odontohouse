@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { AlignVerticalJustifyCenter, Bone, Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight, Smile, Syringe, Sparkles } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
 export const Services = () => {
@@ -13,20 +13,20 @@ export const Services = () => {
     {
       title: t.services.orthoTitle,
       description: t.services.orthoDesc,
-      icon: <AlignVerticalJustifyCenter className="w-10 h-10" />,
-      tag: "Most Popular",
+      icon: <Smile className="w-10 h-10" />,
+      tag: t.services.mostPopular,
     },
     {
       title: t.services.wisdomTitle,
       description: t.services.wisdomDesc,
-      icon: <Bone className="w-10 h-10" />,
-      tag: "Painless",
+      icon: <Syringe className="w-10 h-10" />,
+      tag: t.services.painless,
     },
     {
       title: t.services.whiteningTitle,
       description: t.services.whiteningDesc,
       icon: <Sparkles className="w-10 h-10" />,
-      tag: "1 Session",
+      tag: t.services.oneSession,
     },
   ];
 
@@ -42,12 +42,12 @@ export const Services = () => {
             transition: "opacity 0.7s ease, transform 0.7s ease",
           }}
         >
-          <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">What We Offer</span>
+          <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.services.whatWeOffer}</span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-4">
             {t.services.title}
           </h2>
           <p className="text-sm md:text-base text-gray-500 max-w-xl mx-auto">
-            World-class dental procedures at a fraction of US prices, performed by a specialist with over 10 years of experience.
+            {t.services.subtitle}
           </p>
         </div>
 

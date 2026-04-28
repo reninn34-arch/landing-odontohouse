@@ -66,9 +66,9 @@ export const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <SocialIcon href="https://www.instagram.com/odontohouse?igsh=djR1cmd1ejY4d2Zr" label="Follow us on Instagram" isScrolled={isScrolled}><IGIcon /></SocialIcon>
-              <SocialIcon href="https://www.tiktok.com/@odontohouse.ec?_r=1&_t=ZS-95uAlkmVHRx" label="Follow us on TikTok" isScrolled={isScrolled}><TTIcon /></SocialIcon>
-              <SocialIcon href="https://www.facebook.com/share/1E4Z3Cuzws/" label="Follow us on Facebook" isScrolled={isScrolled}><FBIcon /></SocialIcon>
+              <SocialIcon href="https://www.instagram.com/odontohouse?igsh=djR1cmd1ejY4d2Zr" label={t.nav.followInstagram} isScrolled={isScrolled}><IGIcon /></SocialIcon>
+              <SocialIcon href="https://www.tiktok.com/@odontohouse.ec?_r=1&_t=ZS-95uAlkmVHRx" label={t.nav.followTikTok} isScrolled={isScrolled}><TTIcon /></SocialIcon>
+              <SocialIcon href="https://www.facebook.com/share/1E4Z3Cuzws/" label={t.nav.followFacebook} isScrolled={isScrolled}><FBIcon /></SocialIcon>
             </div>
             <div className={`w-px h-5 ${isScrolled ? "bg-gray-300" : "bg-white/20"}`} aria-hidden="true" />
             <div className={`flex p-1 rounded-full transition-colors ${isScrolled ? "bg-gray-100" : "bg-white/10 backdrop-blur-sm"}`} role="group" aria-label="Select language">
@@ -106,7 +106,7 @@ export const Navbar = () => {
           </button>
         </div>
         <div className="flex flex-col gap-6 px-6 pt-8">
-          <p className="text-white/60 text-xs font-semibold uppercase tracking-widest">Language</p>
+          <p className="text-white/60 text-xs font-semibold uppercase tracking-widest">{t.nav.language}</p>
           <div className="flex bg-white/10 p-1 rounded-full self-start" role="group" aria-label="Select language">
             <button onClick={() => { setLanguage("en"); setIsMobileMenuOpen(false); }} aria-label="Switch to English" aria-pressed={language === "en"}
               className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${language === "en" ? "bg-white text-[var(--color-brand-blue-dark)]" : "text-white/60 hover:text-white"}`}>EN</button>
@@ -121,9 +121,9 @@ export const Navbar = () => {
               {t.nav.bookConsultation}
             </a>
             <div className="flex items-center justify-center gap-4 pt-2">
-              <SocialIconLg href="https://www.instagram.com/odontohouse?igsh=djR1cmd1ejY4d2Zr" label="Follow us on Instagram"><IGIcon /></SocialIconLg>
-              <SocialIconLg href="https://www.tiktok.com/@odontohouse.ec?_r=1&_t=ZS-95uAlkmVHRx" label="Follow us on TikTok"><TTIcon /></SocialIconLg>
-              <SocialIconLg href="https://www.facebook.com/share/1E4Z3Cuzws/" label="Follow us on Facebook"><FBIcon /></SocialIconLg>
+              <SocialIconLg href="https://www.instagram.com/odontohouse?igsh=djR1cmd1ejY4d2Zr" label={t.nav.followInstagram}><IGIcon /></SocialIconLg>
+              <SocialIconLg href="https://www.tiktok.com/@odontohouse.ec?_r=1&_t=ZS-95uAlkmVHRx" label={t.nav.followTikTok}><TTIcon /></SocialIconLg>
+              <SocialIconLg href="https://www.facebook.com/share/1E4Z3Cuzws/" label={t.nav.followFacebook}><FBIcon /></SocialIconLg>
             </div>
           </div>
         </div>

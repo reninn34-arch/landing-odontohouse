@@ -31,12 +31,12 @@ export const WhyEcuador = () => {
             transition: "opacity 0.7s ease, transform 0.7s ease",
           }}
         >
-          <span className="text-[var(--color-brand-gold)] font-bold uppercase tracking-widest text-xs md:text-sm">Dental Tourism</span>
+          <span className="text-[var(--color-brand-gold)] font-bold uppercase tracking-widest text-xs md:text-sm">{t.whyEcuador.dentalTourism}</span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mt-3 mb-4">
             {t.whyEcuador.title}
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto">
-            Everything you need for a world-class dental experience — without the US price tag.
+            {t.whyEcuador.subtitle}
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export const WhyEcuador = () => {
             </div>
             <div className="mt-8 flex items-center gap-4">
               <div className="text-5xl font-black text-[var(--color-brand-gold)]">70%</div>
-              <div className="text-gray-400 text-sm">Average savings<br/>vs. US dental costs</div>
+              <div className="text-gray-400 text-sm">{t.whyEcuador.averageSavings}<br/>{t.whyEcuador.vsUsCosts}</div>
             </div>
           </div>
 
@@ -88,8 +88,8 @@ export const WhyEcuador = () => {
             }}
           >
             <Languages className="w-10 h-10 text-[var(--color-brand-gold)] mb-4" />
-            <h3 className="text-xl font-extrabold text-white mb-2">English-Speaking Staff</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">Our lead doctor and team communicate fluently in English — zero language barrier.</p>
+            <h3 className="text-xl font-extrabold text-white mb-2">{t.whyEcuador.englishStaffTitle}</h3>
+            <p className="text-gray-300 text-sm leading-relaxed">{t.whyEcuador.englishStaffDesc}</p>
           </div>
 
           {/* Small card 3 */}
@@ -102,8 +102,8 @@ export const WhyEcuador = () => {
             }}
           >
             <Plane className="w-10 h-10 text-[var(--color-brand-gold)] mb-4" />
-            <h3 className="text-xl font-extrabold text-white mb-2">Travel Assistance</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">Airport pick-up, hotel recommendations, and scheduling support included.</p>
+            <h3 className="text-xl font-extrabold text-white mb-2">{t.whyEcuador.travelAssistanceTitle}</h3>
+            <p className="text-gray-300 text-sm leading-relaxed">{t.whyEcuador.travelAssistanceDesc}</p>
           </div>
 
           {/* Small card 4 */}
