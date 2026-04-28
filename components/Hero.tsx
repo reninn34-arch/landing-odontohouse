@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
-import { motion } from "framer-motion";
 import { MessageCircle, ArrowRight } from "lucide-react";
 
 export const Hero = () => {
@@ -18,7 +17,6 @@ export const Hero = () => {
           alt="Odonto House dental clinic"
           fill
           priority
-          quality={85}
           sizes="100vw"
           className="object-cover object-top md:object-center"
         />
@@ -32,29 +30,20 @@ export const Hero = () => {
       <div className="w-full px-6 sm:px-8 lg:pl-14 relative z-20 pb-16 pt-32 md:pt-28 md:pb-24">
         <div className="max-w-sm md:max-w-md">
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-3 md:mb-5"
+          <h1
+            className="animate-slide-up-fade text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-3 md:mb-5"
           >
             {t.hero.headline}
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="text-sm md:text-lg text-white/70 mb-6 md:mb-10 leading-relaxed max-w-sm md:max-w-lg"
+          <p
+            className="animate-slide-up-fade delay-150 text-sm md:text-lg text-white/70 mb-6 md:mb-10 leading-relaxed max-w-sm md:max-w-lg"
           >
             {t.hero.subtitle}
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.28 }}
-            className="flex flex-row flex-wrap gap-3"
+          <div
+            className="animate-slide-up-fade delay-300 flex flex-row flex-wrap gap-3"
           >
             <a
               href="#contact"
@@ -70,7 +59,7 @@ export const Hero = () => {
             >
               <MessageCircle className="w-4 h-4" /> {t.hero.chatWhatsApp}
             </a>
-          </motion.div>
+          </div>
 
         </div>
       </div>
