@@ -137,7 +137,7 @@ export const TrustBar = () => {
             transition: "opacity 0.6s ease 0.55s, transform 0.6s ease 0.55s",
           }}
         >
-          <span className="text-xs text-gray-400 font-semibold uppercase tracking-widest mr-4">
+          <span className="text-xs text-gray-500 font-semibold uppercase tracking-widest mr-4">
             Our Materials &amp; Partners
           </span>
           {["Invisalign", "3M", "Straumann", "Dentsply"].map((brand) => (

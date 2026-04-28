@@ -58,6 +58,7 @@ export const Footer = () => {
             <div className="w-full h-64 bg-gray-700 rounded-lg overflow-hidden relative">
                <iframe
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3986.980601354422!2d-79.9140833!3d-2.1610833000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwMDknMzkuOSJTIDc5wrA1NCc1MC43Ilc!5e0!3m2!1ses!2sec!4v1777318549865!5m2!1ses!2sec"
+                title="Odonto House location map"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -103,8 +104,9 @@ export const Footer = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-1 text-gray-600">{t.footer.treatment}</label>
+                <label htmlFor="treatment-select" className="block text-sm font-semibold mb-1 text-gray-600">{t.footer.treatment}</label>
                 <select
+                  id="treatment-select"
                   name="treatment"
                   value={form.treatment}
                   onChange={handleChange}

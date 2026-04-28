@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { ShieldCheck, Languages, Star } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
@@ -29,11 +30,13 @@ export const MeetDoctor = () => {
               transition: "opacity 0.8s ease, transform 0.8s ease",
             }}
           >
-            <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl group">
-              <img
+            <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl group relative">
+              <Image
                 src="/doctora.jpg"
-                alt="Dr. Elena Barroso"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                alt="Dr. Elena Barroso, specialist in aesthetic dentistry"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             <div

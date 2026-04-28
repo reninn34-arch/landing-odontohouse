@@ -1,14 +1,17 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrustBar } from "@/components/TrustBar";
-import { SmileDesign } from "@/components/SmileDesign";
-import { Services } from "@/components/Services";
-import { WhyEcuador } from "@/components/WhyEcuador";
-import { MeetDoctor } from "@/components/MeetDoctor";
-import { Testimonials } from "@/components/Testimonials";
-import { FAQ } from "@/components/FAQ";
-import { Footer } from "@/components/Footer";
-import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import dynamic from "next/dynamic";
+
+// Below-the-fold: lazy-loaded to reduce initial JS bundle & TBT
+const SmileDesign  = dynamic(() => import("@/components/SmileDesign").then(m => ({ default: m.SmileDesign })),  { ssr: true });
+const Services     = dynamic(() => import("@/components/Services").then(m => ({ default: m.Services })),         { ssr: true });
+const WhyEcuador   = dynamic(() => import("@/components/WhyEcuador").then(m => ({ default: m.WhyEcuador })),     { ssr: true });
+const MeetDoctor   = dynamic(() => import("@/components/MeetDoctor").then(m => ({ default: m.MeetDoctor })),     { ssr: true });
+const Testimonials = dynamic(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })), { ssr: true });
+const FAQ          = dynamic(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })),                   { ssr: true });
+const Footer       = dynamic(() => import("@/components/Footer").then(m => ({ default: m.Footer })),             { ssr: true });
+const FloatingWhatsApp = dynamic(() => import("@/components/FloatingWhatsAppLazy"), { ssr: true });
 
 export default function Home() {
   return (

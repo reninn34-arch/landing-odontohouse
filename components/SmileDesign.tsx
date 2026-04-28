@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowLeftRight, ImageIcon } from "lucide-react";
 
@@ -73,11 +74,13 @@ export const SmileDesign = () => {
 
           {/* After Image (Background — full width, color) */}
           <div className="absolute inset-0">
-            <img
+            <Image
               src="/after.jpg"
-              alt=""
-              className="w-full h-full object-cover"
-              draggable="false"
+              alt="Smile after dental treatment"
+              fill
+              sizes="(max-width: 768px) 100vw, 896px"
+              className="object-cover"
+              draggable={false}
               onError={() => setAfterLoaded(false)}
               onLoad={() => setAfterLoaded(true)}
             />
@@ -88,11 +91,13 @@ export const SmileDesign = () => {
             className="absolute inset-0 z-10"
             style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
           >
-            <img
+            <Image
               src="/before.jpg"
-              alt=""
-              className="w-full h-full object-cover grayscale"
-              draggable="false"
+              alt="Smile before dental treatment"
+              fill
+              sizes="(max-width: 768px) 100vw, 896px"
+              className="object-cover grayscale"
+              draggable={false}
               onError={() => setBeforeLoaded(false)}
               onLoad={() => setBeforeLoaded(true)}
             />

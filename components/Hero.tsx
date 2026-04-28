@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { MessageCircle, ArrowRight } from "lucide-react";
@@ -10,12 +11,16 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-end md:items-center overflow-hidden">
-      {/* Full-bleed background image */}
+      {/* Full-bleed background image — priority preloads LCP element */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/hero.jpg"
-          alt="Dental Clinic"
-          className="w-full h-full object-cover object-top md:object-center"
+          alt="Odonto House dental clinic"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="object-cover object-top md:object-center"
         />
         {/* Mobile: gradient from bottom only — face stays visible */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#051A2F]/95 via-[#051A2F]/40 to-transparent md:hidden" />
@@ -72,8 +77,8 @@ export const Hero = () => {
 
       {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none">
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block">
-          <path d="M0 60L1440 60L1440 20C1100 55 700 60 360 40C220 32 80 20 0 30L0 60Z" fill="white" />
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block">
+          <path d="M0 60L1440 60L1440 0C1100 35 700 55 360 35C220 27 80 15 0 0L0 60Z" fill="white" />
         </svg>
       </div>
     </section>
