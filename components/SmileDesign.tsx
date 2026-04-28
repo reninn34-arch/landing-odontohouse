@@ -71,23 +71,8 @@ export const SmileDesign = () => {
             </div>
           )}
 
-          {/* Before Image (Background) */}
+          {/* After Image (Background — full width, color) */}
           <div className="absolute inset-0">
-            <img
-              src="/before.jpg"
-              alt=""
-              className="w-full h-full object-cover grayscale"
-              draggable="false"
-              onError={() => setBeforeLoaded(false)}
-              onLoad={() => setBeforeLoaded(true)}
-            />
-          </div>
-
-          {/* After Image (Foreground, clipped) */}
-          <div
-            className="absolute inset-0 z-10"
-            style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
-          >
             <img
               src="/after.jpg"
               alt=""
@@ -95,6 +80,21 @@ export const SmileDesign = () => {
               draggable="false"
               onError={() => setAfterLoaded(false)}
               onLoad={() => setAfterLoaded(true)}
+            />
+          </div>
+
+          {/* Before Image (Foreground — clipped to left side, grayscale) */}
+          <div
+            className="absolute inset-0 z-10"
+            style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+          >
+            <img
+              src="/before.jpg"
+              alt=""
+              className="w-full h-full object-cover grayscale"
+              draggable="false"
+              onError={() => setBeforeLoaded(false)}
+              onLoad={() => setBeforeLoaded(true)}
             />
           </div>
 
