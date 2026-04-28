@@ -9,8 +9,35 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Odonthouse | Dental Tourism Ecuador",
-  description: "Get your dream smile in Ecuador for a fraction of the US cost. Premium Smile Design and Expert Dental Care.",
+  title: "Odonto House | Premium Dental Tourism in Ecuador",
+  description: "Get your dream smile in Ecuador for a fraction of the US cost. Premium Smile Design, Implants, and Expert Dental Care in a state-of-the-art clinic.",
+  keywords: [
+    "dental tourism", "smile design ecuador", "dentist ecuador", 
+    "dental implants", "affordable dental care", "turismo dental ecuador", 
+    "diseño de sonrisa", "carillas dentales"
+  ],
+  openGraph: {
+    title: "Odonto House | Premium Dental Tourism",
+    description: "Save up to 70% on premium dental care in Ecuador. Contact us for a free quote!",
+    url: "https://odontohouse.com",
+    siteName: "Odonto House",
+    images: [
+      {
+        url: "/hero.jpg", // Esta imagen se mostrará al compartir el link en WhatsApp
+        width: 1200,
+        height: 630,
+        alt: "Odonto House Premium Clinic",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Odonto House | Dental Tourism",
+    description: "Get your dream smile in Ecuador for a fraction of the US cost.",
+    images: ["/hero.jpg"],
+  },
   other: {
     // Prevent Google Translate & other browser extensions from mutating
     // the DOM before React hydrates, which causes hydration mismatches.
