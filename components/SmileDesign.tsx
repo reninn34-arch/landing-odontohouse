@@ -75,12 +75,13 @@ export const SmileDesign = () => {
           {/* After Image (Background — full width, color) */}
           <div className="absolute inset-0">
             <Image
-              src="/after.jpg"
+              src="/after2.jpg"
               alt="Smile after dental treatment"
               fill
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover"
               draggable={false}
+              unoptimized
               onError={() => setAfterLoaded(false)}
               onLoad={() => setAfterLoaded(true)}
             />
@@ -92,12 +93,13 @@ export const SmileDesign = () => {
             style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
           >
             <Image
-              src="/before.jpg"
+              src="/before2.jpg"
               alt="Smile before dental treatment"
               fill
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover grayscale"
               draggable={false}
+              unoptimized
               onError={() => setBeforeLoaded(false)}
               onLoad={() => setBeforeLoaded(true)}
             />
