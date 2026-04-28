@@ -143,7 +143,7 @@ export const TrustBar = () => {
           {["Invisalign", "3M", "Straumann", "Dentsply"].map((brand) => (
             <span
               key={brand}
-              className="text-sm font-bold text-gray-400 border border-gray-200 px-4 py-1.5 rounded-full hover:border-[var(--color-brand-gold)] hover:text-[var(--color-brand-gold)] transition-colors duration-300"
+              className="text-sm font-bold text-gray-500 border border-gray-200 px-4 py-1.5 rounded-full hover:border-[var(--color-brand-gold)] hover:text-[var(--color-brand-gold)] transition-colors duration-300"
             >
               {brand}
             </span>

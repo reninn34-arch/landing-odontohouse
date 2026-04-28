@@ -51,10 +51,10 @@ export const Testimonials = () => {
               </p>
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className={`font-extrabold ${idx === 1 ? "text-white" : "text-[var(--color-brand-blue-dark)]"}`}>
+                  <h3 className={`font-extrabold ${idx === 1 ? "text-white" : "text-[var(--color-brand-blue-dark)]"}`}>
                     {review.name}
-                  </h4>
-                  <span className="text-sm text-gray-400">{review.location}</span>
+                  </h3>
+                  <span className={`text-sm ${idx === 1 ? "text-white/70" : "text-gray-500"}`}>{review.location}</span>
                 </div>
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map((i) => (

@@ -67,7 +67,7 @@ export const SmileDesign = () => {
           {!imagesReady && (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 z-40">
               <ImageIcon className="w-16 h-16 text-gray-300 mb-4" />
-              <p className="text-gray-400 font-semibold text-lg">Before & After photos coming soon</p>
+              <p className="text-gray-500 font-semibold text-lg">Before & After photos coming soon</p>
               <p className="text-gray-300 text-sm mt-2">Upload <code className="bg-gray-200 px-2 py-0.5 rounded text-xs">before.jpg</code> and <code className="bg-gray-200 px-2 py-0.5 rounded text-xs">after.jpg</code> to <code className="bg-gray-200 px-2 py-0.5 rounded text-xs">public/</code></p>
             </div>
           )}

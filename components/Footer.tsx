@@ -72,7 +72,7 @@ export const Footer = () => {
           {/* Contact Form */}
           <div className="bg-white text-[var(--color-brand-blue-dark)] p-8 rounded-2xl shadow-xl">
             <h3 className="text-2xl font-bold mb-1">Request Your Free Quote</h3>
-            <p className="text-sm text-gray-400 mb-6 flex items-center gap-1.5">
+            <p className="text-sm text-gray-500 mb-6 flex items-center gap-1.5">
               <MessageCircle className="w-4 h-4 text-green-500" />
               We&rsquo;ll reply instantly via WhatsApp
             </p>
