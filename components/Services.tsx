@@ -42,7 +42,7 @@ export const Services = () => {
             transition: "opacity 0.7s ease, transform 0.7s ease",
           }}
         >
-          <span className="text-[var(--color-brand-gold)] font-bold uppercase tracking-widest text-xs md:text-sm">What We Offer</span>
+          <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">What We Offer</span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-4">
             {t.services.title}
           </h2>

@@ -68,11 +68,11 @@ export const MeetDoctor = () => {
               transition: "opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s",
             }}
           >
-            <span className="text-[var(--color-brand-gold)] font-bold uppercase tracking-widest text-xs md:text-sm">The Specialist</span>
+            <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">The Specialist</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-2">
               {t.doctor.meet}
             </h2>
-            <p className="text-[var(--color-brand-gold)] font-semibold mb-8 text-lg">{t.doctor.credentials}</p>
+            <p className="text-[#8f6d21] font-semibold mb-8 text-lg">{t.doctor.credentials}</p>
             <p className="text-base md:text-xl text-gray-500 mb-8 md:mb-10 leading-relaxed">{t.doctor.bio}</p>
 
             <div className="space-y-4 mb-10">

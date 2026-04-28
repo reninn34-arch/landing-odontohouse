@@ -106,7 +106,7 @@ export const Navbar = () => {
           </button>
         </div>
         <div className="flex flex-col gap-6 px-6 pt-8">
-          <p className="text-white/40 text-xs font-semibold uppercase tracking-widest">Language</p>
+          <p className="text-white/60 text-xs font-semibold uppercase tracking-widest">Language</p>
           <div className="flex bg-white/10 p-1 rounded-full self-start" role="group" aria-label="Select language">
             <button onClick={() => { setLanguage("en"); setIsMobileMenuOpen(false); }} aria-label="Switch to English" aria-pressed={language === "en"}
               className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${language === "en" ? "bg-white text-[var(--color-brand-blue-dark)]" : "text-white/60 hover:text-white"}`}>EN</button>

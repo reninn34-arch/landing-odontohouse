@@ -46,7 +46,7 @@ export const SmileDesign = () => {
   return (
     <section className="py-14 md:py-24 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="text-[var(--color-brand-gold)] font-bold uppercase tracking-widest text-xs md:text-sm">Results</span>
+        <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">Results</span>
         <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-3 md:mb-4">
           {t.smileDesign.title}
         </h2>
