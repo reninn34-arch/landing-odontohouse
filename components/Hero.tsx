@@ -31,7 +31,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-3 md:mb-5"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-3 md:mb-5"
           >
             {t.hero.headline}
           </motion.h1>
@@ -49,21 +49,21 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.28 }}
-            className="flex flex-row flex-wrap gap-2"
+            className="flex flex-row flex-wrap gap-3"
           >
             <a
               href="#contact"
-              className="bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue-dark)] px-5 py-2.5 rounded-full font-extrabold text-xs whitespace-nowrap transition-all flex items-center justify-center gap-1.5 shadow-xl"
+              className="bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue-dark)] px-6 py-3 rounded-full font-extrabold text-sm whitespace-nowrap transition-all flex items-center justify-center gap-2 shadow-xl min-h-[48px]"
             >
-              {t.hero.getQuote} <ArrowRight className="w-3.5 h-3.5" />
+              {t.hero.getQuote} <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="https://wa.me/593990904443"
               target="_blank"
               rel="noreferrer"
-              className="border border-white/40 text-white hover:bg-white/10 px-5 py-2.5 rounded-full font-bold text-xs whitespace-nowrap transition-all flex items-center justify-center gap-1.5 backdrop-blur-sm"
+              className="border border-white/40 text-white hover:bg-white/10 px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition-all flex items-center justify-center gap-2 backdrop-blur-sm min-h-[48px]"
             >
-              <MessageCircle className="w-3.5 h-3.5" /> {t.hero.chatWhatsApp}
+              <MessageCircle className="w-4 h-4" /> {t.hero.chatWhatsApp}
             </a>
           </motion.div>
 

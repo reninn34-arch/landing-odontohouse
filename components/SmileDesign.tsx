@@ -43,20 +43,20 @@ export const SmileDesign = () => {
   const imagesReady = beforeLoaded && afterLoaded;
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-14 md:py-24 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="text-[var(--color-brand-gold)] font-bold uppercase tracking-widest text-sm">Results</span>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-4">
+        <span className="text-[var(--color-brand-gold)] font-bold uppercase tracking-widest text-xs md:text-sm">Results</span>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-3 md:mb-4">
           {t.smileDesign.title}
         </h2>
-        <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">
+        <p className="text-base text-gray-500 mb-8 md:mb-12 max-w-2xl mx-auto">
           {t.smileDesign.description}
         </p>
 
         {/* Slider Container */}
         <div
           ref={containerRef}
-          className={`relative w-full max-w-4xl mx-auto h-[400px] md:h-[550px] overflow-hidden rounded-3xl shadow-2xl select-none ${imagesReady ? "cursor-col-resize" : "cursor-default"}`}
+          className={`relative w-full max-w-4xl mx-auto h-[300px] sm:h-[400px] md:h-[550px] overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl select-none ${imagesReady ? "cursor-col-resize" : "cursor-default"}`}
           onMouseMove={handleMouseMove}
           onTouchMove={handleTouchMove}
           onMouseDown={(e) => { if (imagesReady) { setIsDragging(true); handleMove(e.clientX); } }}
@@ -116,7 +116,7 @@ export const SmileDesign = () => {
               className="absolute top-0 bottom-0 z-20 w-0.5 bg-white cursor-col-resize"
               style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
             >
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center border-2 border-[var(--color-brand-gold)]">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-10 bg-white rounded-full shadow-xl flex items-center justify-center border-2 border-[var(--color-brand-gold)]">
                 <ArrowLeftRight className="w-5 h-5 text-[var(--color-brand-blue-dark)]" />
               </div>
             </div>
