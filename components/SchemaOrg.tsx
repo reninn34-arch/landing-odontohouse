@@ -1,17 +1,11 @@
-"use client";
-
-import { useLanguage } from "@/context/LanguageContext";
-
 const BASE_URL = "https://odontohouse.com";
 
 export const SchemaOrg = () => {
-  const { t } = useLanguage();
-  
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": ["MedicalClinic", "Dentist"],
     "name": "Odonto House",
-    "description": t.hero.subtitle,
+    "description": "Premium Smile Design, Orthodontics, and Expert Dental Care in Guayaquil, Ecuador. Save up to 70% on dental treatments.",
     "url": BASE_URL,
     "image": `${BASE_URL}/hero.jpg`,
     "address": {
@@ -43,11 +37,6 @@ export const SchemaOrg = () => {
       "latitude": "-2.1894",
       "longitude": "-79.8898",
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "3",
-    },
     "areaServed": [
       {
         "@type": "Country",
@@ -76,7 +65,7 @@ export const SchemaOrg = () => {
     "@type": "Physician",
     "name": "Dr. Elena Barroso",
     "jobTitle": "Specialist in Aesthetic Dentistry",
-    "description": t.doctor.bio,
+    "description": "Dr. Elena Barroso is a dedicated specialist with over 10 years of experience in aesthetic dentistry. Fluent in English and trained in the latest global techniques.",
     "url": BASE_URL,
     "image": `${BASE_URL}/doctora.jpg`,
     "address": {
@@ -104,14 +93,40 @@ export const SchemaOrg = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": t.faq.questions.map((q) => ({
-      "@type": "Question",
-      name: q.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: q.a,
+    "mainEntity": [
+      {
+        "@type": "Question",
+        name: "Is it safe to travel to Ecuador for dental work?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Absolutely. Our clinic is located in one of the safest and most exclusive areas. We also offer concierge services including airport pick-up and secure transportation to trusted hotels.",
+        },
       },
-    })),
+      {
+        "@type": "Question",
+        name: "Do you speak English?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes! Our lead doctor and main staff are fluent in English, ensuring clear communication with no language barriers.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does a Smile Design take?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most Smile Design procedures can be completed in just 3 to 5 days, making it perfect for a short vacation.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What payment methods do you accept?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We accept major international credit cards, Zelle, cash, and wire transfers.",
+        },
+      },
+    ],
   };
 
   const breadcrumbSchema = {

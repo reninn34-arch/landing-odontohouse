@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode, useRef, useEffect } from "react";
+import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { en } from "@/locales/en";
 import { es } from "@/locales/es";
 
@@ -11,42 +11,26 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: Dictionary;
+  mounted: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const getInitialLanguage = (): Language => {
-  if (typeof window === "undefined") return "en";
-  
-  const savedLang = localStorage.getItem("odontohouse-lang") as Language;
-  if (savedLang === "en" || savedLang === "es") {
-    return savedLang;
-  }
-  const browserLang = navigator.language.split("-")[0];
-  if (browserLang === "es") {
-    return "es";
-  }
-  return "en";
-};
-
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
-  const isInitialized = useRef(false);
+  const [language, setLanguageState] = useState<Language>("en");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (isInitialized.current) return;
-    isInitialized.current = true;
-    
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === "odontohouse-lang" && e.newValue) {
-        if (e.newValue === "en" || e.newValue === "es") {
-          setLanguageState(e.newValue);
-        }
+    const savedLang = localStorage.getItem("odontohouse-lang") as Language;
+    if (savedLang === "en" || savedLang === "es") {
+      setLanguageState(savedLang);
+    } else {
+      const browserLang = navigator.language.split("-")[0];
+      if (browserLang === "es") {
+        setLanguageState("es");
       }
-    };
-    
-    window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
+    }
+    setMounted(true);
   }, []);
 
   const setLanguage = (lang: Language) => {
@@ -57,7 +41,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const t = language === "en" ? en : es;
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, mounted }}>
       {children}
     </LanguageContext.Provider>
   );

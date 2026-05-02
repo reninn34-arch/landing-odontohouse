@@ -8,6 +8,7 @@ const Skeleton = () => <div className="w-full min-h-[400px] bg-gray-50 animate-p
 
 // Below-the-fold: lazy-loaded to reduce initial JS bundle & TBT
 const SmileDesign  = dynamic(() => import("@/components/SmileDesign").then(m => ({ default: m.SmileDesign })),  { ssr: true, loading: Skeleton });
+const Pricing      = dynamic(() => import("@/components/Pricing").then(m => ({ default: m.Pricing })),          { ssr: true, loading: Skeleton });
 const Services     = dynamic(() => import("@/components/Services").then(m => ({ default: m.Services })),         { ssr: true, loading: Skeleton });
 const WhyEcuador   = dynamic(() => import("@/components/WhyEcuador").then(m => ({ default: m.WhyEcuador })),     { ssr: true, loading: Skeleton });
 const MeetDoctor   = dynamic(() => import("@/components/MeetDoctor").then(m => ({ default: m.MeetDoctor })),     { ssr: true, loading: Skeleton });
@@ -24,6 +25,7 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <SmileDesign />
+      <Pricing />
       <Services />
       <WhyEcuador />
       <MeetDoctor />

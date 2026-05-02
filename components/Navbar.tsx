@@ -36,9 +36,11 @@ const FBIcon = () => (
 );
 
 export const Navbar = () => {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, mounted } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const displayLang = mounted ? language : "en";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 60);
@@ -72,10 +74,10 @@ export const Navbar = () => {
             </div>
             <div className={`w-px h-5 ${isScrolled ? "bg-gray-300" : "bg-white/20"}`} aria-hidden="true" />
             <div className={`flex p-1 rounded-full transition-colors ${isScrolled ? "bg-gray-100" : "bg-white/10 backdrop-blur-sm"}`} role="group" aria-label="Select language">
-              <button onClick={() => setLanguage("en")} aria-label="Switch to English" aria-pressed={language === "en"}
-                className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${language === "en" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>EN</button>
-              <button onClick={() => setLanguage("es")} aria-label="Switch to Spanish" aria-pressed={language === "es"}
-                className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${language === "es" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>ES</button>
+              <button onClick={() => setLanguage("en")} aria-label="Switch to English" aria-pressed={displayLang === "en"}
+                className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${displayLang === "en" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>EN</button>
+              <button onClick={() => setLanguage("es")} aria-label="Switch to Spanish" aria-pressed={displayLang === "es"}
+                className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${displayLang === "es" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>ES</button>
             </div>
             <a href="https://wa.me/593990904443?text=Hi!%20I'm%20interested%20in%20a%20virtual%20consultation" target="_blank" rel="noreferrer"
               className="flex items-center gap-2 bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue)] px-5 py-2.5 rounded-full font-extrabold text-sm transition-all shadow-lg hover:scale-105">
@@ -108,10 +110,10 @@ export const Navbar = () => {
         <div className="flex flex-col gap-6 px-6 pt-8">
           <p className="text-white/60 text-xs font-semibold uppercase tracking-widest">{t.nav.language}</p>
           <div className="flex bg-white/10 p-1 rounded-full self-start" role="group" aria-label="Select language">
-            <button onClick={() => { setLanguage("en"); setIsMobileMenuOpen(false); }} aria-label="Switch to English" aria-pressed={language === "en"}
-              className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${language === "en" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>EN</button>
-            <button onClick={() => { setLanguage("es"); setIsMobileMenuOpen(false); }} aria-label="Switch to Spanish" aria-pressed={language === "es"}
-              className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${language === "es" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>ES</button>
+            <button onClick={() => { setLanguage("en"); setIsMobileMenuOpen(false); }} aria-label="Switch to English" aria-pressed={displayLang === "en"}
+              className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${displayLang === "en" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>EN</button>
+            <button onClick={() => { setLanguage("es"); setIsMobileMenuOpen(false); }} aria-label="Switch to Spanish" aria-pressed={displayLang === "es"}
+              className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${displayLang === "es" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>ES</button>
           </div>
           <div className="border-t border-white/10 pt-6 flex flex-col gap-5">
             <a href="https://wa.me/593990904443?text=Hi!%20I'm%20interested%20in%20a%20virtual%20consultation" target="_blank" rel="noreferrer"
