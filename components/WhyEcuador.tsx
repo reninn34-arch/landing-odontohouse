@@ -15,7 +15,7 @@ export const WhyEcuador = () => {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-14 md:py-24 bg-[var(--color-brand-blue-dark)] relative overflow-hidden"
+      className="py-14 md:py-24 bg-[var(--color-brand-blue)] relative overflow-hidden"
     >
       {/* Decorative circles — now with subtle pulse */}
       <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white/5 pointer-events-none animate-[ping_6s_ease-in-out_infinite]" style={{ animationDuration: "6s" }} />
@@ -71,10 +71,10 @@ export const WhyEcuador = () => {
               transition: "opacity 0.7s ease 0.22s, transform 0.7s ease 0.22s, scale 0.3s, translate 0.3s",
             }}
           >
-            <Award className="w-10 h-10 text-[var(--color-brand-blue-dark)] mb-4" />
+            <Award className="w-10 h-10 text-[var(--color-brand-blue)] mb-4" />
             <div>
-              <h3 className="text-xl font-extrabold text-[var(--color-brand-blue-dark)] mb-2">{t.whyEcuador.qualityTitle}</h3>
-              <p className="text-[var(--color-brand-blue-dark)]/80 text-sm leading-relaxed">{t.whyEcuador.qualityDesc}</p>
+              <h3 className="text-xl font-extrabold text-[var(--color-brand-blue)] mb-2">{t.whyEcuador.qualityTitle}</h3>
+              <p className="text-[var(--color-brand-blue)]/80 text-sm leading-relaxed">{t.whyEcuador.qualityDesc}</p>
             </div>
           </div>
 

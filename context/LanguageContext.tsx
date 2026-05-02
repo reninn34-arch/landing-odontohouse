@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { en } from "@/locales/en";
 import { es } from "@/locales/es";
 
@@ -16,7 +16,24 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguageState] = useState<Language>("en");
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("odontohouse-lang") as Language;
+    if (savedLang === "en" || savedLang === "es") {
+      setLanguageState(savedLang);
+    } else {
+      const browserLang = navigator.language.split("-")[0];
+      if (browserLang === "es") {
+        setLanguageState("es");
+      }
+    }
+  }, []);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem("odontohouse-lang", lang);
+  };
 
   const t = language === "en" ? en : es;
 

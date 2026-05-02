@@ -40,7 +40,7 @@ export const MeetDoctor = () => {
               />
             </div>
             <div
-              className="absolute -bottom-6 -right-6 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue-dark)] rounded-2xl shadow-xl px-6 py-4 text-center"
+              className="absolute -bottom-6 -right-6 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] rounded-2xl shadow-xl px-6 py-4 text-center"
               style={{
                 opacity: inView ? 1 : 0,
                 transform: inView ? "scale(1)" : "scale(0.6)",
@@ -69,7 +69,7 @@ export const MeetDoctor = () => {
             }}
           >
             <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.doctor.specialist}</span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-2">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue)] mt-3 mb-2">
               {t.doctor.meet}
             </h2>
             <p className="text-[#8f6d21] font-semibold mb-8 text-lg">{t.doctor.credentials}</p>
@@ -86,7 +86,7 @@ export const MeetDoctor = () => {
                     transition: `opacity 0.6s ease ${0.4 + idx * 0.12}s, transform 0.6s ease ${0.4 + idx * 0.12}s`,
                   }}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[var(--color-brand-blue-dark)] flex items-center justify-center text-[var(--color-brand-gold)] flex-shrink-0 hover:bg-[var(--color-brand-gold)] hover:text-[var(--color-brand-blue-dark)] transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-[var(--color-brand-blue)] flex items-center justify-center text-[var(--color-brand-gold)] flex-shrink-0 hover:bg-[var(--color-brand-gold)] hover:text-[var(--color-brand-blue)] transition-colors duration-300">
                     {item.icon}
                   </div>
                   <span className="font-semibold text-gray-700">{item.text}</span>
@@ -98,7 +98,7 @@ export const MeetDoctor = () => {
               href={`https://wa.me/593990904443?text=${t.doctor.whatsappMsg}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-3 bg-[var(--color-brand-blue-dark)] text-white px-8 py-4 rounded-full font-bold hover:bg-[var(--color-brand-gold)] hover:text-[var(--color-brand-blue-dark)] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center gap-3 bg-[var(--color-brand-blue)] text-white px-8 py-4 rounded-full font-bold hover:bg-[var(--color-brand-gold)] hover:text-[var(--color-brand-blue)] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               {t.doctor.bookConsultation}
             </a>

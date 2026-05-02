@@ -43,7 +43,7 @@ export const Services = () => {
           }}
         >
           <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.services.whatWeOffer}</span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-4">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue)] mt-3 mb-4">
             {t.services.title}
           </h2>
           <p className="text-sm md:text-base text-gray-500 max-w-xl mx-auto">
@@ -72,16 +72,16 @@ export const Services = () => {
               </span>
 
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-[var(--color-brand-blue-dark)] flex items-center justify-center text-[var(--color-brand-gold)] mb-6 group-hover:bg-[var(--color-brand-gold)] group-hover:text-white transition-colors duration-300 group-hover:rotate-3 group-hover:scale-110">
+              <div className="w-16 h-16 rounded-2xl bg-[var(--color-brand-blue)] flex items-center justify-center text-[var(--color-brand-gold)] mb-6 group-hover:bg-[var(--color-brand-gold)] group-hover:text-white transition-colors duration-300 group-hover:rotate-3 group-hover:scale-110">
                 {service.icon}
               </div>
 
-              <h3 className="text-xl font-extrabold text-[var(--color-brand-blue-dark)] mb-3">{service.title}</h3>
+              <h3 className="text-xl font-extrabold text-[var(--color-brand-blue)] mb-3">{service.title}</h3>
               <p className="text-gray-500 mb-8 flex-grow leading-relaxed">{service.description}</p>
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 text-[var(--color-brand-blue-dark)] font-bold group-hover:text-[var(--color-brand-gold)] transition-colors"
+                className="inline-flex items-center gap-2 text-[var(--color-brand-blue)] font-bold group-hover:text-[var(--color-brand-gold)] transition-colors"
               >
                 {t.services.learnMore} <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
               </a>

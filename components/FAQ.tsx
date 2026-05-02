@@ -25,7 +25,7 @@ export const FAQ = () => {
             transition: "opacity 0.7s ease, transform 0.7s ease",
           }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-[var(--color-brand-blue-dark)] mb-10 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[var(--color-brand-blue)] mb-10 md:mb-16">
             {t.faq.title}
           </h2>
         </div>
@@ -45,7 +45,7 @@ export const FAQ = () => {
                 onClick={() => toggleOpen(idx)}
                 className="w-full flex items-center justify-between p-6 bg-gray-50 hover:bg-gray-100 transition-colors focus:outline-none group"
               >
-                <span className="font-bold text-lg text-[var(--color-brand-blue-dark)] text-left group-hover:text-[var(--color-brand-teal)] transition-colors duration-300">
+                <span className="font-bold text-lg text-[var(--color-brand-blue)] text-left group-hover:text-[var(--color-brand-gold)] transition-colors duration-300">
                   {faq.q}
                 </span>
                 <div

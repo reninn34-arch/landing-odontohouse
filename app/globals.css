@@ -3,9 +3,6 @@
 @theme {
   --color-brand-blue: #051A2F; /* Exact Odonto House Navy */
   --color-brand-blue-light: #0a2e56; /* Slightly lighter for hover states if needed */
-  --color-brand-blue-dark: #051A2F; /* Exact Odonto House Navy */
-  --color-brand-teal: #dcb059; /* Mapped to Gold */
-  --color-brand-teal-light: #f3db95;
   --color-brand-gold: #dcb059; /* Exact Odonto House Gold */
   --color-brand-gold-light: #f3db95;
   --color-background: #ffffff;
@@ -15,7 +12,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #051A2F;
 }
 
 body {

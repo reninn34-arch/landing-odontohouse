@@ -62,7 +62,7 @@ function AnimatedStat({
       <div className="text-[var(--color-brand-gold)] mb-2 group-hover:scale-110 transition-transform duration-300">
         {icon}
       </div>
-      <span className="text-4xl font-extrabold text-[var(--color-brand-blue-dark)] leading-tight tabular-nums">
+      <span className="text-4xl font-extrabold text-[var(--color-brand-blue)] leading-tight tabular-nums">
         {isNumeric ? `${count}${suffix}` : target}
       </span>
       <span className="text-sm text-gray-500 font-medium mt-1">{label}</span>

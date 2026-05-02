@@ -21,7 +21,7 @@ export const Testimonials = () => {
           }}
         >
           <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.testimonials.patientStories}</span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue)] mt-3">
             {t.testimonials.title}
           </h2>
         </div>
@@ -32,7 +32,7 @@ export const Testimonials = () => {
               key={idx}
               className={`rounded-3xl p-8 flex flex-col hover:-translate-y-2 hover:shadow-xl transition-all duration-500 ${
                 idx === 1
-                  ? "bg-[var(--color-brand-blue-dark)] text-white"
+                  ? "bg-[var(--color-brand-blue)] text-white"
                   : "bg-white border border-gray-100 shadow-sm"
               }`}
               style={{
@@ -51,7 +51,7 @@ export const Testimonials = () => {
               </p>
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className={`font-extrabold ${idx === 1 ? "text-white" : "text-[var(--color-brand-blue-dark)]"}`}>
+                  <h3 className={`font-extrabold ${idx === 1 ? "text-white" : "text-[var(--color-brand-blue)]"}`}>
                     {review.name}
                   </h3>
                   <span className={`text-sm ${idx === 1 ? "text-white/70" : "text-gray-500"}`}>{review.location}</span>

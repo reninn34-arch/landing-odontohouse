@@ -10,7 +10,7 @@ const SocialIcon = ({ href, label, children, isScrolled }: {
 }) => (
   <a href={href} target="_blank" rel="noreferrer" aria-label={label}
     className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group ${isScrolled ? "bg-gray-100 hover:bg-[var(--color-brand-gold)]" : "bg-white/10 hover:bg-[var(--color-brand-gold)]"}`}>
-    <span className={`w-4 h-4 transition-colors group-hover:text-[var(--color-brand-blue-dark)] ${isScrolled ? "text-gray-600" : "text-white"}`} aria-hidden="true">
+    <span className={`w-4 h-4 transition-colors group-hover:text-[var(--color-brand-blue)] ${isScrolled ? "text-gray-600" : "text-white"}`} aria-hidden="true">
       {children}
     </span>
   </a>
@@ -19,7 +19,7 @@ const SocialIcon = ({ href, label, children, isScrolled }: {
 const SocialIconLg = ({ href, label, children }: { href: string; label: string; children: React.ReactNode }) => (
   <a href={href} target="_blank" rel="noreferrer" aria-label={label}
     className="w-10 h-10 rounded-full bg-white/10 hover:bg-[var(--color-brand-gold)] flex items-center justify-center transition-all duration-300 active:scale-95 group">
-    <span className="w-5 h-5 text-white group-hover:text-[var(--color-brand-blue-dark)] transition-colors" aria-hidden="true">
+    <span className="w-5 h-5 text-white group-hover:text-[var(--color-brand-blue)] transition-colors" aria-hidden="true">
       {children}
     </span>
   </a>
@@ -73,12 +73,12 @@ export const Navbar = () => {
             <div className={`w-px h-5 ${isScrolled ? "bg-gray-300" : "bg-white/20"}`} aria-hidden="true" />
             <div className={`flex p-1 rounded-full transition-colors ${isScrolled ? "bg-gray-100" : "bg-white/10 backdrop-blur-sm"}`} role="group" aria-label="Select language">
               <button onClick={() => setLanguage("en")} aria-label="Switch to English" aria-pressed={language === "en"}
-                className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${language === "en" ? "bg-white text-[var(--color-brand-blue-dark)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>EN</button>
+                className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${language === "en" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>EN</button>
               <button onClick={() => setLanguage("es")} aria-label="Switch to Spanish" aria-pressed={language === "es"}
-                className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${language === "es" ? "bg-white text-[var(--color-brand-blue-dark)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>ES</button>
+                className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${language === "es" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>ES</button>
             </div>
             <a href="https://wa.me/593990904443?text=Hi!%20I'm%20interested%20in%20a%20virtual%20consultation" target="_blank" rel="noreferrer"
-              className="flex items-center gap-2 bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue-dark)] px-5 py-2.5 rounded-full font-extrabold text-sm transition-all shadow-lg hover:scale-105">
+              className="flex items-center gap-2 bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue)] px-5 py-2.5 rounded-full font-extrabold text-sm transition-all shadow-lg hover:scale-105">
               <MessageCircle className="w-4 h-4" aria-hidden="true" />
               {t.nav.bookConsultation}
             </a>
@@ -88,7 +88,7 @@ export const Navbar = () => {
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-drawer"
-            className={`md:hidden focus:outline-none transition-colors z-[60] relative ${isMobileMenuOpen ? "text-white" : isScrolled ? "text-[var(--color-brand-blue-dark)]" : "text-white"}`}>
+            className={`md:hidden focus:outline-none transition-colors z-[60] relative ${isMobileMenuOpen ? "text-white" : isScrolled ? "text-[var(--color-brand-blue)]" : "text-white"}`}>
             {isMobileMenuOpen ? <X className="w-7 h-7" aria-hidden="true" /> : <Menu className="w-7 h-7" aria-hidden="true" />}
           </button>
         </div>
@@ -98,7 +98,7 @@ export const Navbar = () => {
         className={`md:hidden fixed inset-0 z-[55] bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`} />
 
       <div id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu"
-        className={`md:hidden fixed top-0 right-0 h-full w-[78vw] max-w-xs z-[58] bg-[var(--color-brand-blue-dark)] shadow-2xl flex flex-col transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+        className={`md:hidden fixed top-0 right-0 h-full w-[78vw] max-w-xs z-[58] bg-[var(--color-brand-blue)] shadow-2xl flex flex-col transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/10">
           <Image src="/logo-dark.png" alt="Odonto House" width={120} height={40} className="h-10 w-auto object-contain brightness-0 invert" />
           <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu" className="text-white/60 hover:text-white transition-colors">
@@ -109,14 +109,14 @@ export const Navbar = () => {
           <p className="text-white/60 text-xs font-semibold uppercase tracking-widest">{t.nav.language}</p>
           <div className="flex bg-white/10 p-1 rounded-full self-start" role="group" aria-label="Select language">
             <button onClick={() => { setLanguage("en"); setIsMobileMenuOpen(false); }} aria-label="Switch to English" aria-pressed={language === "en"}
-              className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${language === "en" ? "bg-white text-[var(--color-brand-blue-dark)]" : "text-white/60 hover:text-white"}`}>EN</button>
+              className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${language === "en" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>EN</button>
             <button onClick={() => { setLanguage("es"); setIsMobileMenuOpen(false); }} aria-label="Switch to Spanish" aria-pressed={language === "es"}
-              className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${language === "es" ? "bg-white text-[var(--color-brand-blue-dark)]" : "text-white/60 hover:text-white"}`}>ES</button>
+              className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${language === "es" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>ES</button>
           </div>
           <div className="border-t border-white/10 pt-6 flex flex-col gap-5">
             <a href="https://wa.me/593990904443?text=Hi!%20I'm%20interested%20in%20a%20virtual%20consultation" target="_blank" rel="noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue-dark)] px-6 py-3.5 rounded-full font-extrabold text-sm w-full shadow-lg active:scale-95 transition-transform">
+              className="flex items-center justify-center gap-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] px-6 py-3.5 rounded-full font-extrabold text-sm w-full shadow-lg active:scale-95 transition-transform">
               <MessageCircle className="w-4 h-4" aria-hidden="true" />
               {t.nav.bookConsultation}
             </a>

@@ -9,8 +9,8 @@ export const SmileDesign = () => {
   const { t } = useLanguage();
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const [beforeLoaded, setBeforeLoaded] = useState(true);
-  const [afterLoaded, setAfterLoaded] = useState(true);
+  const [beforeLoaded, setBeforeLoaded] = useState(false);
+  const [afterLoaded, setAfterLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = (clientX: number) => {
@@ -47,7 +47,7 @@ export const SmileDesign = () => {
     <section className="py-14 md:py-24 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.smileDesign.results}</span>
-        <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue-dark)] mt-3 mb-3 md:mb-4">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue)] mt-3 mb-3 md:mb-4">
           {t.smileDesign.title}
         </h2>
         <p className="text-base text-gray-500 mb-8 md:mb-12 max-w-2xl mx-auto">
@@ -111,7 +111,7 @@ export const SmileDesign = () => {
               <div className="absolute top-4 left-4 z-30 bg-black/60 text-white px-4 py-1.5 rounded-full text-sm font-bold backdrop-blur-sm pointer-events-none">
                 {t.smileDesign.before}
               </div>
-              <div className="absolute top-4 right-4 z-30 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue-dark)] px-4 py-1.5 rounded-full text-sm font-bold shadow-lg pointer-events-none">
+              <div className="absolute top-4 right-4 z-30 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] px-4 py-1.5 rounded-full text-sm font-bold shadow-lg pointer-events-none">
                 {t.smileDesign.after}
               </div>
             </>
@@ -124,7 +124,7 @@ export const SmileDesign = () => {
               style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
             >
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-10 bg-white rounded-full shadow-xl flex items-center justify-center border-2 border-[var(--color-brand-gold)]">
-                <ArrowLeftRight className="w-5 h-5 text-[var(--color-brand-blue-dark)]" />
+                <ArrowLeftRight className="w-5 h-5 text-[var(--color-brand-blue)]" />
               </div>
             </div>
           )}

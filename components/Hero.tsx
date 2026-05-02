@@ -47,7 +47,7 @@ export const Hero = () => {
           >
             <a
               href="#contact"
-              className="bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue-dark)] px-6 py-3 rounded-full font-extrabold text-sm whitespace-nowrap transition-all flex items-center justify-center gap-2 shadow-xl min-h-[48px]"
+              className="bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue)] px-6 py-3 rounded-full font-extrabold text-sm whitespace-nowrap transition-all flex items-center justify-center gap-2 shadow-xl min-h-[48px]"
             >
               {t.hero.getQuote} <ArrowRight className="w-4 h-4" />
             </a>
