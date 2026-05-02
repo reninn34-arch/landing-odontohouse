@@ -21,7 +21,7 @@ export const Hero = () => {
           className="object-cover object-top md:object-center"
         />
         {/* Mobile: gradient from bottom only — face stays visible */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#051A2F]/95 via-[#051A2F]/40 to-transparent md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#051A2F]/80 via-[#051A2F]/20 to-transparent md:hidden" />
         {/* Desktop: gradient from left — original design */}
         <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[#051A2F]/85 via-[#051A2F]/40 to-transparent" />
       </div>
@@ -71,7 +71,7 @@ export const Hero = () => {
           viewBox="0 -240 1440 360"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-[120px] md:h-[200px] lg:h-[280px] xl:h-[360px] block"
+          className="w-full h-[180px] md:h-[200px] lg:h-[280px] xl:h-[360px] block"
         >
           {/* Layer 1 (Back) */}
           <g>
