@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrustBar } from "@/components/TrustBar";
+import { SchemaOrg } from "@/components/SchemaOrg";
 import dynamic from "next/dynamic";
 
 const Skeleton = () => <div className="w-full min-h-[400px] bg-gray-50 animate-pulse" />;
@@ -18,6 +19,7 @@ const FloatingWhatsApp = dynamic(() => import("@/components/FloatingWhatsApp").t
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col w-full overflow-x-hidden">
+      <SchemaOrg />
       <Navbar />
       <Hero />
       <TrustBar />
