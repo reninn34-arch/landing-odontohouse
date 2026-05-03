@@ -23,13 +23,16 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const savedLang = localStorage.getItem("odontohouse-lang") as Language;
     if (savedLang === "en" || savedLang === "es") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLanguageState(savedLang);
     } else {
       const browserLang = navigator.language.split("-")[0];
       if (browserLang === "es") {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setLanguageState("es");
       }
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
