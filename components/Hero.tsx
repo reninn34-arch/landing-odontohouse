@@ -19,7 +19,6 @@ export const Hero = () => {
           priority
           sizes="100vw"
           quality={85}
-          fetchPriority="high"
           className="object-cover"
         />
         {/* Mobile: bottom-heavy gradient to keep faces clear at the top */}
