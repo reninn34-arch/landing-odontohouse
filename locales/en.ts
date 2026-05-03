@@ -7,8 +7,8 @@ export const en = {
     followFacebook: "Follow us on Facebook",
   },
   hero: {
-    headline: "Get Your Dream Smile in Ecuador for a Fraction of the US Cost",
-    subtitle: "Premium Smile Design, Orthodontics, and Expert Dental Care.",
+    headline: "Premium Dental Care in Ecuador - Save 70%",
+    subtitle: "Expert dentists in smile design, orthodontics & implants. Save up to 70% vs US with US-certified materials.",
     getQuote: "Get a Free Quote",
     chatWhatsApp: "Chat on WhatsApp",
   },

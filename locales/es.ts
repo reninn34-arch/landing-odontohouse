@@ -9,8 +9,8 @@ export const es: typeof en = {
     followFacebook: "Síguenos en Facebook",
   },
   hero: {
-    headline: "Obtén la Sonrisa de tus Sueños en Ecuador por una Fracción del Costo",
-    subtitle: "Diseño de Sonrisa Premium, Ortodoncia y Atención Dental Experta.",
+    headline: "Atención Dental Premium en Ecuador - Ahorra 70%",
+    subtitle: "Dentistas expertos en diseño de sonrisa, ortodoncia e implantes. Ahorra hasta 70% vs USA con materiales certificados.",
     getQuote: "Obtén una Cotización Gratis",
     chatWhatsApp: "Chatea por WhatsApp",
   },

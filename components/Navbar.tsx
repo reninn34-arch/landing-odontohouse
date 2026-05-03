@@ -81,7 +81,7 @@ export const Navbar = () => {
             </div>
             <a href="https://wa.me/593990904443?text=Hi!%20I'm%20interested%20in%20a%20virtual%20consultation" target="_blank" rel="noreferrer"
               className="flex items-center gap-2 bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue)] px-5 py-2.5 rounded-full font-extrabold text-sm transition-all shadow-lg hover:scale-105">
-              <MessageCircle className="w-4 h-4" aria-hidden="true" />
+              <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
               {t.nav.bookConsultation}
             </a>
           </div>
@@ -119,7 +119,7 @@ export const Navbar = () => {
             <a href="https://wa.me/593990904443?text=Hi!%20I'm%20interested%20in%20a%20virtual%20consultation" target="_blank" rel="noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] px-6 py-3.5 rounded-full font-extrabold text-sm w-full shadow-lg active:scale-95 transition-transform">
-              <MessageCircle className="w-4 h-4" aria-hidden="true" />
+              <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
               {t.nav.bookConsultation}
             </a>
             <div className="flex items-center justify-center gap-4 pt-2">

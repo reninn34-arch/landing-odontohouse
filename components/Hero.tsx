@@ -29,17 +29,17 @@ export const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="w-full px-6 sm:px-8 lg:pl-14 relative z-20 pb-6 pt-32 md:pt-28 md:pb-24">
-        <div className="max-w-sm md:max-w-md">
+      <div className="w-full px-6 sm:px-8 lg:pl-14 relative z-20 pb-24 pt-28 md:pt-28 md:pb-24">
+        <div className="max-w-sm md:max-w-lg">
 
           <h1
-            className="animate-slide-up-fade text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-3 md:mb-5"
+            className="animate-slide-up-fade text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight mb-2 md:mb-3"
           >
             {t.hero.headline}
           </h1>
 
           <p
-            className="animate-slide-up-fade delay-150 text-sm md:text-lg text-white/70 mb-6 md:mb-10 leading-relaxed max-w-sm md:max-w-lg"
+            className="animate-slide-up-fade delay-150 text-xs sm:text-sm md:text-base text-white/70 mb-4 md:mb-6 leading-relaxed max-w-sm md:max-w-lg"
           >
             {t.hero.subtitle}
           </p>
@@ -51,15 +51,15 @@ export const Hero = () => {
               href="#contact"
               className="bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue)] px-6 py-3 rounded-full font-extrabold text-sm whitespace-nowrap transition-all flex items-center justify-center gap-2 shadow-xl min-h-[48px]"
             >
-              {t.hero.getQuote} <ArrowRight className="w-4 h-4" />
+              {t.hero.getQuote} <ArrowRight className="w-4 h-4 shrink-0" />
             </a>
             <a
               href="https://wa.me/593990904443"
               target="_blank"
               rel="noreferrer"
-              className="border border-white/40 text-white hover:bg-white/10 px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition-all flex items-center justify-center gap-2 backdrop-blur-sm min-h-[48px]"
+              className="hidden md:flex shrink-0 border border-white/40 text-white hover:bg-white/10 px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition-all items-center justify-center gap-2 backdrop-blur-sm min-h-[48px]"
             >
-              <MessageCircle className="w-4 h-4" /> {t.hero.chatWhatsApp}
+              <MessageCircle className="w-4 h-4 shrink-0" /> {t.hero.chatWhatsApp}
             </a>
           </div>
 
@@ -73,7 +73,7 @@ export const Hero = () => {
           viewBox="0 -240 1440 360"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-[180px] md:h-[200px] lg:h-[280px] xl:h-[360px] block"
+          className="w-full h-[170px] md:h-[200px] lg:h-[280px] xl:h-[360px] block"
         >
           {/* Layer 1 (Back) */}
           <g>
