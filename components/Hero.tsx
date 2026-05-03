@@ -9,7 +9,7 @@ export const Hero = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-end md:items-center overflow-hidden">
+    <section className="relative h-[550px] md:min-h-screen flex items-end md:items-center overflow-hidden bg-white">
       {/* Full-bleed background image — priority preloads LCP element */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -17,7 +17,8 @@ export const Hero = () => {
           alt="Odonto House dental clinic"
           fill
           priority
-          unoptimized
+          sizes="100vw"
+          quality={90}
           className="object-cover object-top md:object-center"
         />
         {/* Mobile: gradient from bottom only — face stays visible */}
@@ -27,7 +28,7 @@ export const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="w-full px-6 sm:px-8 lg:pl-14 relative z-20 pb-16 pt-32 md:pt-28 md:pb-24">
+      <div className="w-full px-6 sm:px-8 lg:pl-14 relative z-20 pb-12 pt-24 md:pt-28 md:pb-24">
         <div className="max-w-sm md:max-w-md">
 
           <h1
@@ -66,7 +67,7 @@ export const Hero = () => {
 
       {/* Bottom wave */}
       {/* Animated Bottom wave - Extra tall viewBox to push the wave to the very bottom for an infinite feel */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none translate-y-[1px]">
+      <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none translate-y-[2px]">
         <svg
           viewBox="0 -240 1440 360"
           preserveAspectRatio="none"
