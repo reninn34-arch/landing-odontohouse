@@ -9,7 +9,7 @@ export const Hero = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative h-[580px] md:min-h-screen flex items-end md:items-center overflow-hidden bg-white">
+    <section className="relative h-[620px] md:min-h-screen flex items-end md:items-center overflow-hidden bg-white">
       {/* Full-bleed background image — priority preloads LCP element */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -19,16 +19,16 @@ export const Hero = () => {
           priority
           sizes="100vw"
           quality={90}
-          className="object-cover object-center"
+          className="object-cover object-top md:object-center"
         />
         {/* Mobile: bottom-heavy gradient to keep faces clear at the top */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#051A2F]/90 via-[#051A2F]/40 to-transparent md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#051A2F]/95 via-[#051A2F]/40 to-transparent md:hidden" />
         {/* Desktop: gradient from left — original design */}
         <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[#051A2F]/85 via-[#051A2F]/40 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="w-full px-6 sm:px-8 lg:pl-14 relative z-20 pb-8 pt-32 md:pt-28 md:pb-24">
+      <div className="w-full px-6 sm:px-8 lg:pl-14 relative z-20 pb-6 pt-32 md:pt-28 md:pb-24">
         <div className="max-w-sm md:max-w-md">
 
           <h1
