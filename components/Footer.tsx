@@ -1,10 +1,57 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { MapPin, Phone, Mail, CheckCircle, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, CheckCircle, MessageCircle, Map } from "lucide-react";
 
 const WA_NUMBER = "593990904443";
+
+const MAP_SRC = "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3986.980601354422!2d-79.9140833!3d-2.1610833000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwMDknMzkuOSJTIDc5wrA1NCc1MC43Ilc!5e0!3m2!1ses!2sec!4v1777318549865!5m2!1ses!2sec";
+
+function LazyMapEmbed() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsLoaded(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  if (!isLoaded) {
+    return (
+      <div ref={containerRef} className="w-full h-full flex items-center justify-center bg-gray-800">
+        <div className="text-center">
+          <Map className="w-10 h-10 text-gray-400 mx-auto mb-2" />
+          <p className="text-gray-400 text-sm">Cargando mapa...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <iframe
+      src={MAP_SRC}
+      title="Odonto House location map"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+  );
+}
 
 export const Footer = () => {
   const { t, language } = useLanguage();
@@ -52,18 +99,9 @@ export const Footer = () => {
               </div>
             </div>
 
-            {/* Map Placeholder */}
+            {/* Map - Lazy loaded on interaction */}
             <div className="w-full h-64 bg-gray-700 rounded-lg overflow-hidden relative">
-               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3986.980601354422!2d-79.9140833!3d-2.1610833000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwMDknMzkuOSJTIDc5wrA1NCc1MC43Ilc!5e0!3m2!1ses!2sec!4v1777318549865!5m2!1ses!2sec"
-                title="Odonto House location map"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <LazyMapEmbed />
             </div>
           </div>
 
