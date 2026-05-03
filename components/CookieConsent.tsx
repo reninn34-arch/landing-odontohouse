@@ -91,17 +91,6 @@ export const CookieConsent = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (isPrivacyPage) {
-      const stored = localStorage.getItem("cookie_consent");
-      if (!stored) {
-        setShowFloatingButton(true);
-      } else {
-        setShowFloatingButton(true);
-      }
-    }
-  }, [pathname]);
-
   const handleAcceptAll = () => {
     const newPrefs = { necessary: true, analytics: true, marketing: true };
     setPreferences(newPrefs);
@@ -131,51 +120,47 @@ export const CookieConsent = () => {
     }
   };
 
-  const shouldShowFloatingButton = showFloatingButton && !showBanner && !showSettings;
+  const shouldShowFloating = showFloatingButton || isPrivacyPage;
 
-  if (!showBanner && !showSettings && !showFloatingButton) return null;
+  if (!showBanner && !showSettings && !shouldShowFloating) return null;
 
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-end justify-center">
-        <div className="absolute inset-0 bg-black/50" onClick={() => setShowSettings(false)} />
-        <div className="relative w-full max-w-lg mx-4 mb-4 bg-white rounded-2xl shadow-2xl animate-slide-up-fade overflow-hidden">
-          {!showSettings ? (
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-[var(--color-brand-blue)]/10 rounded-full">
-                  <Cookie className="w-5 h-5 text-[var(--color-brand-blue)]" />
-                </div>
-                <h3 className="text-lg font-bold text-[var(--color-brand-blue)]">{t.title}</h3>
-              </div>
-              <p className="text-sm text-gray-600 mb-6 leading-relaxed">{t.description}</p>
-              <div className="flex flex-wrap gap-3">
-                <button
-                  onClick={handleAcceptAll}
-                  className="flex-1 min-w-[120px] px-4 py-2.5 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] font-bold rounded-full text-sm hover:bg-[var(--color-brand-gold-light)] transition-colors"
-                >
-                  {t.acceptAll}
-                </button>
-                <button
-                  onClick={handleReject}
-                  className="flex-1 min-w-[120px] px-4 py-2.5 border border-gray-300 text-gray-700 font-semibold rounded-full text-sm hover:bg-gray-50 transition-colors"
-                >
-                  {t.reject}
-                </button>
-                <button
-                  onClick={() => setShowSettings(true)}
-                  className="w-full px-4 py-2.5 text-[var(--color-brand-blue)] font-semibold text-sm hover:underline"
-                >
-                  {t.manage}
-                </button>
-              </div>
-              <div className="mt-4 pt-4 border-t border-gray-100">
-                <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-[var(--color-brand-blue)]">
-                  {t.privacyPolicy}
-                </a>
-              </div>
+      {showBanner && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 text-sm text-gray-700">
+              <Cookie className="w-5 h-5 text-[var(--color-brand-gold)] shrink-0" />
+              <p className="line-clamp-2 md:line-clamp-1">{t.description}</p>
             </div>
-          ) : (
+            <div className="flex items-center gap-3 shrink-0">
+              <button
+                onClick={handleReject}
+                className="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium text-sm transition-colors"
+              >
+                {t.reject}
+              </button>
+              <button
+                onClick={() => setShowSettings(true)}
+                className="px-4 py-2 text-[var(--color-brand-blue)] font-medium text-sm hover:underline"
+              >
+                {t.manage}
+              </button>
+              <button
+                onClick={handleAcceptAll}
+                className="px-5 py-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] font-bold rounded-full text-sm hover:bg-[var(--color-brand-gold-light)] transition-colors"
+              >
+                {t.acceptAll}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showSettings && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setShowSettings(false)} />
+          <div className="relative w-full max-w-lg mx-4 mb-4 bg-white rounded-2xl shadow-2xl overflow-hidden">
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-[var(--color-brand-blue)]">{t.manage}</h3>
@@ -227,15 +212,14 @@ export const CookieConsent = () => {
                 {t.savePreferences}
               </button>
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Floating button when cookies were rejected or on privacy page */}
-      {shouldShowFloatingButton && !showBanner && !showSettings && (
+      {shouldShowFloating && !showBanner && !showSettings && (
         <button
           onClick={() => setShowSettings(true)}
-          className="fixed bottom-4 right-4 z-50 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] px-4 py-2.5 rounded-full font-bold text-sm shadow-lg hover:bg-[var(--color-brand-gold-light)] transition-all flex items-center gap-2 animate-bounce"
+          className="fixed bottom-4 right-4 z-50 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] px-4 py-2.5 rounded-full font-bold text-sm shadow-lg hover:bg-[var(--color-brand-gold-light)] transition-all flex items-center gap-2"
         >
           <Cookie className="w-4 h-4" />
           {t.openSettings}
