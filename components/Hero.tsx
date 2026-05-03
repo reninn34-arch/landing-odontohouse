@@ -19,7 +19,7 @@ export const Hero = () => {
           priority
           sizes="100vw"
           quality={90}
-          className="object-cover"
+          className="object-cover object-top md:object-center"
         />
         {/* Mobile: bottom-heavy gradient to keep faces clear at the top */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#051A2F]/95 via-[#051A2F]/40 to-transparent md:hidden" />
