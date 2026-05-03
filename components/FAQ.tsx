@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 
 export const FAQ = () => {
@@ -56,21 +55,15 @@ export const FAQ = () => {
                 </div>
               </button>
 
-              <AnimatePresence>
-                {openIndex === idx && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="p-6 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">
-                      {faq.a}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div 
+                className={`grid transition-all duration-300 ease-in-out ${openIndex === idx ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+              >
+                <div className="overflow-hidden">
+                  <div className="p-6 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
