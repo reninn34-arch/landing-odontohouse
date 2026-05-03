@@ -92,9 +92,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta httpEquiv="Pragma" content="no-cache" />
-        <meta httpEquiv="Expires" content="0" />
         <link rel="canonical" href={BASE_URL} />
         <link rel="alternate" hrefLang="en" href={BASE_URL} />
         <link rel="alternate" hrefLang="es" href={BASE_URL} />
