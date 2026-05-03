@@ -12,14 +12,15 @@ export const Hero = () => {
     <section className="relative h-[620px] md:min-h-screen flex items-end md:items-center overflow-hidden bg-white">
       {/* Full-bleed background image — priority preloads LCP element */}
       <div className="absolute inset-0 z-0">
-        <Image
+<Image
           src="/hero.jpg"
           alt="Odonto House dental clinic"
           fill
           priority
           sizes="100vw"
-          quality={90}
-          className="object-cover object-top md:object-center"
+          quality={85}
+          fetchPriority="high"
+          className="object-cover"
         />
         {/* Mobile: bottom-heavy gradient to keep faces clear at the top */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#051A2F]/95 via-[#051A2F]/40 to-transparent md:hidden" />
