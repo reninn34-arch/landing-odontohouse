@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { ArrowLeftRight, ImageIcon } from "lucide-react";
 
 export const SmileDesign = () => {
-  const { t } = useLanguage();
+  const { t, mounted } = useLanguage();
   const [sliderPosition, setSliderPosition] = useState(50);
   const [beforeLoaded, setBeforeLoaded] = useState(false);
   const [afterLoaded, setAfterLoaded] = useState(false);
@@ -31,6 +31,14 @@ export const SmileDesign = () => {
   };
 
   const imagesReady = beforeLoaded && afterLoaded;
+
+  if (!mounted) {
+    return (
+      <section className="py-14 md:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-[600px]" />
+      </section>
+    );
+  }
 
   return (
     <section className="py-14 md:py-24 bg-white">
