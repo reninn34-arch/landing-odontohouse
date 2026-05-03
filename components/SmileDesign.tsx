@@ -79,7 +79,7 @@ export const SmileDesign = () => {
               alt="Smile after dental treatment"
               fill
               sizes="(max-width: 768px) 100vw, 896px"
-              quality={85}
+              quality={75}
               className="object-cover"
               draggable={false}
               onError={() => setAfterLoaded(false)}
@@ -97,7 +97,7 @@ export const SmileDesign = () => {
               alt="Smile before dental treatment"
               fill
               sizes="(max-width: 768px) 100vw, 896px"
-              quality={85}
+              quality={75}
               className="object-cover grayscale"
               draggable={false}
               onError={() => setBeforeLoaded(false)}

@@ -17,8 +17,8 @@ export const Hero = () => {
           alt="Odonto House dental clinic"
           fill
           priority
-          sizes="100vw"
-          quality={85}
+          sizes="(max-width: 768px) 1024px, 100vw"
+          quality={90}
           fetchPriority="high"
           className="object-cover"
         />
