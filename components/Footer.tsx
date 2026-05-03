@@ -182,9 +182,12 @@ export const Footer = () => {
               </svg>
             </a>
           </div>
-          <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} {t.footer.allRightsReserved}
-          </p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-brand-gold)] transition-colors">
+              {language === "es" ? "Política de Privacidad" : "Privacy Policy"}
+            </a>
+            <span>&copy; {new Date().getFullYear()} {t.footer.allRightsReserved}</span>
+          </div>
         </div>
       </div>
     </footer>

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useInView } from "@/hooks/useInView";
-import { Check, X, DollarSign, ChevronDown, Calculator } from "lucide-react";
+import { Check, DollarSign, ChevronDown, Calculator } from "lucide-react";
 
 const prices = {
   en: {
@@ -215,7 +215,7 @@ specialPackage: {
 };
 
 export const Pricing = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const { ref, inView } = useInView(0.1);
   const [showPrices, setShowPrices] = useState(false);
   

@@ -22,6 +22,10 @@ body {
   @apply antialiased;
 }
 
+html {
+  background: #ffffff;
+}
+
 @keyframes slideUpFade {
   from {
     opacity: 0;
