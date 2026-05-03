@@ -12,13 +12,13 @@ export const Hero = () => {
     <section className="relative h-[620px] md:min-h-screen flex items-end md:items-center overflow-hidden bg-white">
       {/* Full-bleed background image — priority preloads LCP element */}
       <div className="absolute inset-0 z-0">
-<Image
+        <Image
           src="/hero.jpg"
           alt="Odonto House dental clinic"
           fill
           priority
           sizes="100vw"
-          quality={85}
+          quality={90}
           className="object-cover"
         />
         {/* Mobile: bottom-heavy gradient to keep faces clear at the top */}
@@ -76,39 +76,39 @@ export const Hero = () => {
         >
           {/* Layer 1 (Back) */}
           <g>
-            <animateTransform 
-              attributeName="transform" 
-              type="translate" 
-              from="0 0" 
-              to="-1440 0" 
-              dur="25s" 
-              repeatCount="indefinite" 
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              from="0 0"
+              to="-1440 0"
+              dur="25s"
+              repeatCount="indefinite"
             />
             <path d="M0,50 C360,100 1080,0 1440,50 C1800,100 2520,0 2880,50 V120 H0 Z" fill="white" opacity="0.3" />
           </g>
 
           {/* Layer 2 (Middle) */}
           <g>
-            <animateTransform 
-              attributeName="transform" 
-              type="translate" 
-              from="0 0" 
-              to="-960 0" 
-              dur="18s" 
-              repeatCount="indefinite" 
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              from="0 0"
+              to="-960 0"
+              dur="18s"
+              repeatCount="indefinite"
             />
             <path d="M0,65 C240,110 720,20 960,65 C1200,110 1680,20 1920,65 C2160,110 2640,20 2880,65 V120 H0 Z" fill="white" opacity="0.6" />
           </g>
 
           {/* Layer 3 (Front) */}
           <g>
-            <animateTransform 
-              attributeName="transform" 
-              type="translate" 
-              from="0 0" 
-              to="-720 0" 
-              dur="12s" 
-              repeatCount="indefinite" 
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              from="0 0"
+              to="-720 0"
+              dur="12s"
+              repeatCount="indefinite"
             />
             <path d="M0,80 C180,115 540,45 720,80 C900,115 1260,45 1440,80 C1620,115 1980,45 2160,80 C2340,115 2700,45 2880,80 V120 H0 Z" fill="white" />
           </g>
