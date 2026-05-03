@@ -76,7 +76,6 @@ export const SmileDesign = () => {
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover"
               draggable={false}
-              unoptimized
               onError={() => setAfterLoaded(false)}
               onLoad={() => setAfterLoaded(true)}
             />
@@ -94,7 +93,6 @@ export const SmileDesign = () => {
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover grayscale"
               draggable={false}
-              unoptimized
               onError={() => setBeforeLoaded(false)}
               onLoad={() => setBeforeLoaded(true)}
             />

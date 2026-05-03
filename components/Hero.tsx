@@ -17,7 +17,7 @@ export const Hero = () => {
           alt="Odonto House dental clinic"
           fill
           priority
-          sizes="100vw"
+          unoptimized
           className="object-cover object-top md:object-center"
         />
         {/* Mobile: gradient from bottom only — face stays visible */}
