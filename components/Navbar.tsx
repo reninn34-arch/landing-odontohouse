@@ -73,9 +73,10 @@ export const Navbar = () => {
               <SocialIcon href="https://www.facebook.com/share/1E4Z3Cuzws/" label={t.nav.followFacebook} isScrolled={isScrolled}><FBIcon /></SocialIcon>
             </div>
             <div className={`w-px h-5 ${isScrolled ? "bg-gray-300" : "bg-white/20"}`} aria-hidden="true" />
-            <div className={`flex p-1 rounded-full transition-colors ${isScrolled ? "bg-gray-100" : "bg-white/10 backdrop-blur-sm"}`} role="group" aria-label="Select language">
+            <div className={`flex items-center gap-1 p-1 rounded-full transition-colors ${isScrolled ? "bg-gray-100" : "bg-white/10 backdrop-blur-sm"}`} role="group" aria-label="Select language">
               <button onClick={() => setLanguage("en")} aria-label="Switch to English" aria-pressed={displayLang === "en"}
                 className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${displayLang === "en" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>EN</button>
+              <span className={`text-xs opacity-30 ${isScrolled ? "text-gray-400" : "text-white"}`} aria-hidden="true">|</span>
               <button onClick={() => setLanguage("es")} aria-label="Switch to Spanish" aria-pressed={displayLang === "es"}
                 className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${displayLang === "es" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>ES</button>
             </div>
@@ -109,9 +110,10 @@ export const Navbar = () => {
         </div>
         <div className="flex flex-col gap-6 px-6 pt-8">
           <p className="text-white/60 text-xs font-semibold uppercase tracking-widest">{t.nav.language}</p>
-          <div className="flex bg-white/10 p-1 rounded-full self-start" role="group" aria-label="Select language">
+          <div className="flex items-center gap-1 bg-white/10 p-1 rounded-full self-start" role="group" aria-label="Select language">
             <button onClick={() => { setLanguage("en"); setIsMobileMenuOpen(false); }} aria-label="Switch to English" aria-pressed={displayLang === "en"}
               className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${displayLang === "en" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>EN</button>
+            <span className="text-white/20 text-xs" aria-hidden="true">|</span>
             <button onClick={() => { setLanguage("es"); setIsMobileMenuOpen(false); }} aria-label="Switch to Spanish" aria-pressed={displayLang === "es"}
               className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${displayLang === "es" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>ES</button>
           </div>
