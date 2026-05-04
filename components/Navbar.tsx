@@ -36,11 +36,11 @@ const FBIcon = () => (
 );
 
 export const Navbar = () => {
-  const { language, setLanguage, t, mounted } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const displayLang = mounted ? language : "en";
+  const displayLang = language;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 60);

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
+import { cookies } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { en } from "@/locales/en";
@@ -79,14 +80,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("NEXT_LOCALE")?.value as "en" | "es") || "en";
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX";
+
   return (
     <html
-      lang="en"
+      lang={locale}
       translate="no"
       className={`${montserrat.variable} h-full antialiased`}
       suppressHydrationWarning
@@ -97,13 +102,13 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="es" href={BASE_URL} />
         <link rel="alternate" hrefLang="x-default" href={BASE_URL} />
         {/* Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX', {
+            gtag('config', '${GA_ID}', {
               page_title: document.title,
               anonymize_ip: true,
               cookie_flags: 'SameSite=Lax;Secure'
@@ -112,7 +117,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-full flex flex-col">
-        <LanguageProvider>
+        <LanguageProvider initialLanguage={locale}>
           {children}
           <CookieConsent />
         </LanguageProvider>

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { useLanguage } from "@/context/LanguageContext";
 import { ShieldCheck, Users, Award, Clock } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
+import { Reveal } from "./Reveal";
 
 // ── Animated counter component ────────────────────────────────────────────────
 function AnimatedCounter({ target }: { target: number }) {
@@ -77,8 +77,7 @@ function AnimatedStat({
 }
 
 // ── TrustBar ──────────────────────────────────────────────────────────────────
-export const TrustBar = () => {
-  const { t } = useLanguage();
+export const TrustBar = ({ t }: { t: any }) => {
   const { ref, inView } = useInView(0.2);
 
   const stats = [
@@ -115,7 +114,7 @@ export const TrustBar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
-          {stats.map((stat, idx) => (
+          {stats.map((stat: any, idx: number) => (
             <AnimatedStat
               key={idx}
               icon={stat.icon}
@@ -129,19 +128,15 @@ export const TrustBar = () => {
         </div>
 
         {/* Brands strip */}
-        <div
+        <Reveal
           className="mt-12 pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 flex-wrap"
-          style={{
-            opacity: inView ? 1 : 0,
-            transform: inView ? "translateY(0)" : "translateY(16px)",
-            transition: "opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s",
-          }}
+          delay={500}
         >
           <span className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2 md:mb-0">
             {t.trustBar.materialsTitle}
           </span>
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
-            {["Invisalign", "3M", "Straumann", "Dentsply"].map((brand) => (
+            {["Invisalign", "3M", "Straumann", "Dentsply"].map((brand: string) => (
               <span
                 key={brand}
                 className="text-sm md:text-base font-bold text-gray-400 hover:text-[var(--color-brand-gold)] transition-colors duration-300"
@@ -150,7 +145,7 @@ export const TrustBar = () => {
               </span>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

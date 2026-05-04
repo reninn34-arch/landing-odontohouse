@@ -53,8 +53,7 @@ function LazyMapEmbed() {
   );
 }
 
-export const Footer = () => {
-  const { t, language } = useLanguage();
+export const Footer = ({ t, locale }: { t: any; locale: string }) => {
   const [form, setForm] = useState({ name: "", email: "", treatment: "" });
   const [sent, setSent] = useState(false);
 
@@ -65,7 +64,7 @@ export const Footer = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const treatment = form.treatment || t.footer.treatmentOptions[0];
-    const message = language === "es"
+    const message = locale === "es"
       ? `¡Hola! Me gustaría solicitar una cotización gratuita de Odonto House.\n\n👤 *Nombre:* ${form.name}\n📧 *Email:* ${form.email}\n🦷 *Tratamiento:* ${treatment}`
       : `Hello! I'd like to request a free quote from Odonto House.\n\n👤 *Name:* ${form.name}\n📧 *Email:* ${form.email}\n🦷 *Treatment:* ${treatment}`;
     const encoded = encodeURIComponent(message);
@@ -149,7 +148,7 @@ export const Footer = () => {
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-gold)] bg-white transition-colors"
                 >
-                  {t.footer.treatmentOptions.map((option, idx) => (
+                  {t.footer.treatmentOptions.map((option: string, idx: number) => (
                     <option key={idx} value={option}>{option}</option>
                   ))}
                 </select>
@@ -222,7 +221,7 @@ export const Footer = () => {
           </div>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
             <a href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-brand-gold)] transition-colors">
-              {language === "es" ? "Política de Privacidad" : "Privacy Policy"}
+              {locale === "es" ? "Política de Privacidad" : "Privacy Policy"}
             </a>
             <span>&copy; {new Date().getFullYear()} {t.footer.allRightsReserved}</span>
           </div>

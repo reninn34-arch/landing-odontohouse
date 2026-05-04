@@ -1,12 +1,8 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
-import { useLanguage } from "@/context/LanguageContext";
 import { MessageCircle, ArrowRight } from "lucide-react";
 
-export const Hero = () => {
-  const { t } = useLanguage();
+export const Hero = ({ t }: { t: any }) => {
 
   return (
     <section className="relative h-[620px] md:min-h-screen flex items-end md:items-center overflow-hidden bg-white">
@@ -33,19 +29,19 @@ export const Hero = () => {
         <div className="max-w-sm md:max-w-lg">
 
           <h1
-            className="animate-slide-up-fade text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight mb-2 md:mb-3"
+            className="animate-slide-right-fade text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight mb-2 md:mb-3"
           >
             {t.hero.headline}
           </h1>
 
           <p
-            className="animate-slide-up-fade delay-150 text-xs sm:text-sm md:text-base text-white/70 mb-4 md:mb-6 leading-relaxed max-w-sm md:max-w-lg"
+            className="animate-slide-right-fade delay-150 text-xs sm:text-sm md:text-base text-white/70 mb-4 md:mb-6 leading-relaxed max-w-sm md:max-w-lg"
           >
             {t.hero.subtitle}
           </p>
 
           <div
-            className="animate-slide-up-fade delay-300 flex flex-row flex-wrap gap-3"
+            className="animate-slide-right-fade delay-300 flex flex-row flex-wrap gap-3"
           >
             <a
               href="#contact"

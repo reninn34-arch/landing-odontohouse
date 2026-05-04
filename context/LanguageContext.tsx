@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 import { en } from "@/locales/en";
 import { es } from "@/locales/es";
 
@@ -11,40 +11,31 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: Dictionary;
-  mounted: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>("en");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const savedLang = localStorage.getItem("odontohouse-lang") as Language;
-    if (savedLang === "en" || savedLang === "es") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setLanguageState(savedLang);
-    } else {
-      const browserLang = navigator.language.split("-")[0];
-      if (browserLang === "es") {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setLanguageState("es");
-      }
-    }
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
+export const LanguageProvider = ({ 
+  children, 
+  initialLanguage 
+}: { 
+  children: ReactNode; 
+  initialLanguage: Language;
+}) => {
+  const [language, setLanguageState] = useState<Language>(initialLanguage);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem("odontohouse-lang", lang);
+    // Update cookie so server can read it on next request
+    document.cookie = `NEXT_LOCALE=${lang}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+    // Refresh to apply changes server-side (optional but recommended for pure server components)
+    window.location.reload();
   };
 
   const t = language === "en" ? en : es;
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, mounted }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );

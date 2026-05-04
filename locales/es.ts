@@ -121,6 +121,109 @@ export const es: typeof en = {
       },
     ]
   },
+  pricing: {
+    title: "Precios Transparentes",
+    subtitle: "Compara precios de EE.UU. vs Ecuador. Misma calidad, mismos materiales, hasta 70% de ahorro.",
+    tableTitle: "Comparación de Costos de Tratamiento",
+    perTooth: "por diente",
+    perArch: "por arco",
+    fullMouth: "boca completa",
+    saving: "AHORRA",
+    included: "Qué Está Incluido",
+    includedList: [
+      "Consulta gratuita",
+      "Materiales premium (Straumann, Nobel Biocare, Emax)",
+      "Traslado desde aeropuerto",
+      "Asistencia con hotel",
+      "Seguimiento post-tratamiento"
+    ],
+    cta: "Obtén Tu Cotización Gratis",
+    whatsappMsg: "Hola!%20Me%20gustaría%20obtener%20una%20cotización%20gratis%20para%20tratamiento%20dental%20en%20Ecuador.%20Me%20pueden%20ayudar?",
+    note: "*Los precios mostrados son promedios. Cotización final basada en tu caso específico después de consulta virtual.",
+    specialPackage: {
+      title: "Paquete Todo Incluido - Diseño de Sonrisa",
+      subtitle: "Todo resuelto para ti. Solo llega y sonríe.",
+      priceLabel: "Oferta Especial",
+      priceHidden: true,
+      features: [
+        "Diseño de Sonrisa (10-12 carillas de porcelana)",
+        "Estancia en Suite de lujo (duración completa del tratamiento)",
+        "3 comidas diarias (desayuno, almuerzo y cena)",
+        "Recogida en aeropuerto de Guayaquil",
+        "Traslado al aeropuerto",
+        "Tour por la ciudad de Guayaquil",
+        "Servicio de conserjería dedicada",
+        "Todas las visitas de seguimiento incluidas"
+      ],
+      cta: "Solicitar Información",
+      whatsappMsg: "Hola!%20Estoy%20interesado%20en%20el%20Paquete%20Todo%20Incluido%20de%20Diseño%20de%20Sonrisa.%20Me%20puede%20dar%20más%20detalles%20y%20el%20precio?"
+    },
+    treatments: [
+      {
+        name: "Carillas de Porcelana (Emax)",
+        usa: "$1,500",
+        ecuador: "$350",
+        unit: "por diente",
+        savings: "77%"
+      },
+      {
+        name: "Coronas de Zirconia",
+        usa: "$1,800",
+        ecuador: "$400",
+        unit: "por diente",
+        savings: "78%"
+      },
+      {
+        name: "Implantes All-on-4",
+        usa: "$28,000",
+        ecuador: "$8,500",
+        unit: "por arco",
+        savings: "70%"
+      },
+      {
+        name: "Implantes All-on-6",
+        usa: "$35,000",
+        ecuador: "$12,000",
+        unit: "por arco",
+        savings: "66%"
+      },
+      {
+        name: "Implante Dental Individual",
+        usa: "$4,500",
+        ecuador: "$950",
+        unit: "por implante",
+        savings: "79%"
+      },
+      {
+        name: "Hollywood Smile (10-12 carillas)",
+        usa: "$18,000",
+        ecuador: "$4,200",
+        unit: "sonrisa completa",
+        savings: "77%"
+      },
+      {
+        name: "Invisalign / Alineadores Transparentes",
+        usa: "$6,000",
+        ecuador: "$2,200",
+        unit: "tratamiento completo",
+        savings: "63%"
+      },
+      {
+        name: "Blanqueamiento Dental (Láser)",
+        usa: "$800",
+        ecuador: "$250",
+        unit: "por sesión",
+        savings: "69%"
+      },
+      {
+        name: "Tratamiento de Conducto",
+        usa: "$1,200",
+        ecuador: "$300",
+        unit: "por diente",
+        savings: "75%"
+      },
+    ]
+  },
   footer: {
     ready: "¿Listo para tu nueva sonrisa? ¡Planeemos tu viaje!",
     address: "Av. las Aguas 1106 entre Jiguas y Laureles, Guayaquil",

@@ -1,240 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import { useLanguage } from "@/context/LanguageContext";
-import { useInView } from "@/hooks/useInView";
 import { Check, DollarSign, ChevronDown, Calculator } from "lucide-react";
+import { Reveal } from "./Reveal";
 
-const prices = {
-  en: {
-    title: "Transparent Pricing",
-    subtitle: "Compare USA vs Ecuador prices. Same quality, same materials, up to 70% savings.",
-    tableTitle: "Treatment Cost Comparison",
-    perTooth: "per tooth",
-    perArch: "per arch",
-    fullMouth: "full mouth",
-    saving: "SAVE",
-    included: "What's Included",
-    includedList: [
-      "Free consultation",
-      "Premium materials (Straumann, Nobel Biocare, Emax)",
-      "Airport transfer",
-      "Hotel assistance",
-      "Follow-up care"
-    ],
-    cta: "Get Your Free Quote",
-    whatsappMsg: "Hi!%20I%20would%20like%20to%20get%20a%20free%20quote%20for%20dental%20treatment%20in%20Ecuador.%20Can%20you%20help%20me?",
-    note: "*Prices shown are averages. Final quote based on your specific case after virtual consultation.",
-    specialPackage: {
-      title: "All-Inclusive Smile Design Package",
-      subtitle: "Everything handled for you. Just arrive and smile.",
-      priceLabel: "Special Offer",
-      priceHidden: true,
-      features: [
-        "Smile Design (10-12 porcelain veneers)",
-        "Luxury Suite Stay (entire treatment duration)",
-        "3 meals daily (breakfast, lunch & dinner)",
-        "Airport pickup in Guayaquil",
-        "Airport drop-off",
-        "Guayaquil city tour",
-        "Dedicated concierge service",
-        "All follow-up visits included"
-      ],
-      cta: "Ask for Details",
-      whatsappMsg: "Hi!%20I'm%20interested%20in%20the%20All-Inclusive%20Smile%20Design%20Package.%20Can%20you%20give%20me%20more%20details%20and%20pricing?"
-    },
-    treatments: [
-      {
-        name: "Porcelain Veneers (Emax)",
-        usa: "$1,500",
-        ecuador: "$350",
-        unit: "per tooth",
-        savings: "77%"
-      },
-      {
-        name: "Zirconia Crowns",
-        usa: "$1,800",
-        ecuador: "$400",
-        unit: "per tooth",
-        savings: "78%"
-      },
-      {
-        name: "All-on-4 Implants",
-        usa: "$28,000",
-        ecuador: "$8,500",
-        unit: "per arch",
-        savings: "70%"
-      },
-      {
-        name: "All-on-6 Implants",
-        usa: "$35,000",
-        ecuador: "$12,000",
-        unit: "per arch",
-        savings: "66%"
-      },
-      {
-        name: "Single Dental Implant",
-        usa: "$4,500",
-        ecuador: "$950",
-        unit: "per implant",
-        savings: "79%"
-      },
-      {
-        name: "Hollywood Smile (10-12 veneers)",
-        usa: "$18,000",
-        ecuador: "$4,200",
-        unit: "full smile",
-        savings: "77%"
-      },
-      {
-        name: "Invisalign / Clear Aligners",
-        usa: "$6,000",
-        ecuador: "$2,200",
-        unit: "full treatment",
-        savings: "63%"
-      },
-      {
-        name: "Teeth Whitening (Laser)",
-        usa: "$800",
-        ecuador: "$250",
-        unit: "per session",
-        savings: "69%"
-      },
-      {
-        name: "Root Canal Treatment",
-        usa: "$1,200",
-        ecuador: "$300",
-        unit: "per tooth",
-        savings: "75%"
-      },
-    ]
-  },
-  es: {
-    title: "Precios Transparentes",
-    subtitle: "Compara precios de EE.UU. vs Ecuador. Misma calidad, mismos materiales, hasta 70% de ahorro.",
-    tableTitle: "Comparación de Costos de Tratamiento",
-    perTooth: "por diente",
-    perArch: "por arco",
-    fullMouth: "boca completa",
-    saving: "AHORRA",
-    included: "Qué Está Incluido",
-    includedList: [
-      "Consulta gratuita",
-      "Materiales premium (Straumann, Nobel Biocare, Emax)",
-      "Traslado desde aeropuerto",
-      "Asistencia con hotel",
-      "Seguimiento post-tratamiento"
-    ],
-    cta: "Obtén Tu Cotización Gratis",
-    whatsappMsg: "Hola!%20Me%20gustaría%20obtener%20una%20cotización%20gratis%20para%20tratamiento%20dental%20en%20Ecuador.%20Me%20pueden%20ayudar?",
-    note: "*Los precios mostrados son promedios. Cotización final basada en tu caso específico después de consulta virtual.",
-specialPackage: {
-      title: "Paquete Todo Incluido - Diseño de Sonrisa",
-      subtitle: "Todo resuelto para ti. Solo llega y sonríe.",
-      priceLabel: "Oferta Especial",
-      priceHidden: true,
-      features: [
-        "Diseño de Sonrisa (10-12 carillas de porcelana)",
-        "Estancia en Suite de lujo (duración completa del tratamiento)",
-        "3 comidas diarias (desayuno, almuerzo y cena)",
-        "Recogida en aeropuerto de Guayaquil",
-        "Traslado al aeropuerto",
-        "Tour por la ciudad de Guayaquil",
-        "Servicio de conserjería dedicada",
-        "Todas las visitas de seguimiento incluidas"
-      ],
-      cta: "Solicitar Información",
-      whatsappMsg: "Hola!%20Estoy%20interesado%20en%20el%20Paquete%20Todo%20Incluido%20de%20Diseño%20de%20Sonrisa.%20Me%20puede%20dar%20más%20detalles%20y%20el%20precio?"
-    },
-    treatments: [
-      {
-        name: "Carillas de Porcelana (Emax)",
-        usa: "$1,500",
-        ecuador: "$350",
-        unit: "por diente",
-        savings: "77%"
-      },
-      {
-        name: "Coronas de Zirconia",
-        usa: "$1,800",
-        ecuador: "$400",
-        unit: "por diente",
-        savings: "78%"
-      },
-      {
-        name: "Implantes All-on-4",
-        usa: "$28,000",
-        ecuador: "$8,500",
-        unit: "por arco",
-        savings: "70%"
-      },
-      {
-        name: "Implantes All-on-6",
-        usa: "$35,000",
-        ecuador: "$12,000",
-        unit: "por arco",
-        savings: "66%"
-      },
-      {
-        name: "Implante Dental Individual",
-        usa: "$4,500",
-        ecuador: "$950",
-        unit: "por implante",
-        savings: "79%"
-      },
-      {
-        name: "Hollywood Smile (10-12 carillas)",
-        usa: "$18,000",
-        ecuador: "$4,200",
-        unit: "sonrisa completa",
-        savings: "77%"
-      },
-      {
-        name: "Invisalign / Alineadores Transparentes",
-        usa: "$6,000",
-        ecuador: "$2,200",
-        unit: "tratamiento completo",
-        savings: "63%"
-      },
-      {
-        name: "Blanqueamiento Dental (Láser)",
-        usa: "$800",
-        ecuador: "$250",
-        unit: "por sesión",
-        savings: "69%"
-      },
-      {
-        name: "Tratamiento de Conducto",
-        usa: "$1,200",
-        ecuador: "$300",
-        unit: "por diente",
-        savings: "75%"
-      },
-    ]
-  }
-};
 
-export const Pricing = () => {
-  const { language } = useLanguage();
-  const { ref, inView } = useInView(0.1);
+export const Pricing = ({ t, locale }: { t: any; locale: string }) => {
   const [showPrices, setShowPrices] = useState(false);
-  
-  const content = language === "en" ? prices.en : prices.es;
+  const content = t.pricing;
 
   return (
-    <section ref={ref as React.RefObject<HTMLElement>} className="py-14 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section id="pricing" className="py-14 md:py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div 
-          className="text-center mb-12"
-          style={{
-            opacity: inView ? 1 : 0,
-            transform: inView ? "translateY(0)" : "translateY(30px)",
-            transition: "opacity 0.7s ease, transform 0.7s ease",
-          }}
-        >
+        <div className="text-center mb-12">
           <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">
-            {language === "en" ? "Transparent Pricing" : "Precios Transparentes"}
+            {locale === "en" ? "Transparent Pricing" : "Precios Transparentes"}
           </span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue)] mt-3 mb-4">
             {content.title}
@@ -245,14 +26,7 @@ export const Pricing = () => {
         </div>
 
         {/* Special All-Inclusive Package */}
-        <div 
-          className="mb-12"
-          style={{
-            opacity: inView ? 1 : 0,
-            transform: inView ? "translateY(0)" : "translateY(30px)",
-            transition: "opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s",
-          }}
-        >
+        <Reveal delay={100} className="mb-12">
           <div className="bg-gradient-to-r from-[var(--color-brand-blue)] to-blue-900 rounded-3xl p-8 md:p-12 relative overflow-hidden group">
             {/* Animated decorative elements */}
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-[var(--color-brand-gold)]/10 rounded-full group-hover:bg-[var(--color-brand-gold)]/20 transition-colors duration-700 animate-pulse"></div>
@@ -264,7 +38,7 @@ export const Pricing = () => {
             
             <div className="relative z-10">
               <span className="inline-block bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] font-bold px-4 py-1 rounded-full text-sm mb-4 animate-bounce" style={{ animationDuration: "3s" }}>
-                {language === "en" ? "BEST VALUE" : "MEJOR VALOR"}
+                {locale === "en" ? "BEST VALUE" : "MEJOR VALOR"}
               </span>
               <h3 className="text-white font-extrabold text-2xl md:text-4xl mb-2 group-hover:scale-[1.02] transition-transform duration-300">
                 {content.specialPackage.title}
@@ -280,24 +54,19 @@ export const Pricing = () => {
                     {content.specialPackage.priceHidden ? (
                       <>
                         <span className="text-white/90">?</span>
-                        <span className="text-2xl text-white/70 font-medium">{language === "en" ? "Ask us" : "Consultános"}</span>
+                        <span className="text-2xl text-white/70 font-medium">{locale === "en" ? "Ask us" : "Consultános"}</span>
                       </>
                     ) : null}
                   </div>
                   <span className="text-white/50 text-xs mt-1 group-hover/price:text-white/70 transition-colors">
-                    {language === "en" ? "Click to inquire" : "Clic para consultar"}
+                    {locale === "en" ? "Click to inquire" : "Clic para consultar"}
                   </span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 flex-1">
-                  {content.specialPackage.features.map((feature, idx) => (
+                  {content.specialPackage.features.map((feature: any, idx: number) => (
                     <div 
                       key={idx} 
                       className="flex items-center gap-2 text-white/90 group-hover/feature:text-white group-hover/feature:translate-x-1 transition-all duration-300"
-                      style={{ 
-                        opacity: inView ? 1 : 0, 
-                        transform: inView ? "translateX(0)" : "translateX(-20px)",
-                        transition: `opacity 0.5s ease ${0.3 + idx * 0.1}s, transform 0.5s ease ${0.3 + idx * 0.1}s`
-                      }}
                     >
                       <Check className="w-5 h-5 text-[var(--color-brand-gold)] flex-shrink-0 group-hover/feature:scale-110 transition-transform duration-300" />
                       <span className="text-sm">{feature}</span>
@@ -318,23 +87,16 @@ export const Pricing = () => {
               </a>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* What's Included Card */}
-        <div 
-          className="bg-[var(--color-brand-blue)] rounded-3xl p-8 mb-12 max-w-2xl mx-auto"
-          style={{
-            opacity: inView ? 1 : 0,
-            transform: inView ? "translateY(0)" : "translateY(30px)",
-            transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s",
-          }}
-        >
+        <div className="bg-[var(--color-brand-blue)] rounded-3xl p-8 mb-12 max-w-2xl mx-auto">
           <h3 className="text-white font-bold text-xl mb-6 flex items-center gap-2">
             <Check className="w-6 h-6 text-[var(--color-brand-gold)]" />
             {content.included}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {content.includedList.map((item, idx) => (
+            {content.includedList.map((item: any, idx: number) => (
               <div key={idx} className="flex items-center gap-2 text-white/90">
                 <Check className="w-4 h-4 text-[var(--color-brand-gold)] flex-shrink-0" />
                 <span className="text-sm">{item}</span>
@@ -344,14 +106,7 @@ export const Pricing = () => {
         </div>
 
         {/* Pricing Table - Collapsible */}
-        <div 
-          className="mt-8"
-          style={{
-            opacity: inView ? 1 : 0,
-            transform: inView ? "translateY(0)" : "translateY(30px)",
-            transition: "opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s",
-          }}
-        >
+        <div className="mt-8">
           {/* Collapsible Button */}
           <button 
             onClick={() => setShowPrices(!showPrices)}
@@ -359,7 +114,7 @@ export const Pricing = () => {
           >
             <Calculator className="w-5 h-5 text-[var(--color-brand-blue)] group-hover:scale-110 transition-transform" />
             <span className="font-bold text-[var(--color-brand-blue)]">
-              {language === "en" ? "Curious about savings? See price comparison" : "¿Curioso sobre los ahorros? Ver comparación de precios"}
+              {locale === "en" ? "Curious about savings? See price comparison" : "¿Curioso sobre los ahorros? Ver comparación de precios"}
             </span>
             <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${showPrices ? "rotate-180" : ""}`} />
           </button>
@@ -385,7 +140,7 @@ export const Pricing = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {content.treatments.map((treatment, idx) => (
+                  {content.treatments.map((treatment: any, idx: number) => (
                     <tr 
                       key={idx} 
                       className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}
@@ -414,14 +169,7 @@ export const Pricing = () => {
         </div>
 
         {/* CTA */}
-        <div 
-          className="text-center mt-12"
-          style={{
-            opacity: inView ? 1 : 0,
-            transform: inView ? "translateY(0)" : "translateY(30px)",
-            transition: "opacity 0.7s ease 0.6s, transform 0.7s ease 0.6s",
-          }}
-        >
+        <div className="text-center mt-12">
           <a 
             href={`https://wa.me/593990904443?text=${content.whatsappMsg}`}
             target="_blank"

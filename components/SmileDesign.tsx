@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { useLanguage } from "@/context/LanguageContext";
 import { ArrowLeftRight, ImageIcon } from "lucide-react";
+import { Reveal } from "./Reveal";
 
-export const SmileDesign = () => {
-  const { t } = useLanguage();
+export const SmileDesign = ({ t }: { t: any }) => {
   const [isMounted, setIsMounted] = useState(false);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [beforeLoaded, setBeforeLoaded] = useState(false);
@@ -46,20 +45,22 @@ export const SmileDesign = () => {
   }
 
   return (
-    <section className="py-14 md:py-24 bg-white">
+    <section className="py-14 md:py-24 bg-white overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.smileDesign.results}</span>
-        <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue)] mt-3 mb-3 md:mb-4">
-          {t.smileDesign.title}
-        </h2>
-        <p className="text-base text-gray-500 mb-8 md:mb-12 max-w-2xl mx-auto">
-          {t.smileDesign.description}
-        </p>
+        <div className="mb-8 md:mb-12">
+          <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.smileDesign.results}</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-brand-blue)] mt-3 mb-3 md:mb-4">
+            {t.smileDesign.title}
+          </h2>
+          <p className="text-base text-gray-500 max-w-2xl mx-auto">
+            {t.smileDesign.description}
+          </p>
+        </div>
 
         {/* Slider Container */}
         <div
           ref={containerRef}
-          className={`relative w-full max-w-4xl mx-auto h-[300px] sm:h-[400px] md:h-[550px] overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl select-none ${imagesReady ? "cursor-col-resize" : "cursor-default"}`}
+          className={`relative w-full max-w-4xl mx-auto h-[300px] sm:h-[400px] md:h-[550px] overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl select-none touch-pan-y ${imagesReady ? "cursor-col-resize" : "cursor-default"}`}
           onMouseMove={handleMouseMove}
           onTouchMove={handleTouchMove}
         >

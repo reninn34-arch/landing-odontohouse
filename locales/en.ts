@@ -119,6 +119,109 @@ export const en = {
       },
     ]
   },
+  pricing: {
+    title: "Transparent Pricing",
+    subtitle: "Compare USA vs Ecuador prices. Same quality, same materials, up to 70% savings.",
+    tableTitle: "Treatment Cost Comparison",
+    perTooth: "per tooth",
+    perArch: "per arch",
+    fullMouth: "full mouth",
+    saving: "SAVE",
+    included: "What's Included",
+    includedList: [
+      "Free consultation",
+      "Premium materials (Straumann, Nobel Biocare, Emax)",
+      "Airport transfer",
+      "Hotel assistance",
+      "Follow-up care"
+    ],
+    cta: "Get Your Free Quote",
+    whatsappMsg: "Hi!%20I%20would%20like%20to%20get%20a%20free%20quote%20for%20dental%20treatment%20in%20Ecuador.%20Can%20you%20help%20me?",
+    note: "*Prices shown are averages. Final quote based on your specific case after virtual consultation.",
+    specialPackage: {
+      title: "All-Inclusive Smile Design Package",
+      subtitle: "Everything handled for you. Just arrive and smile.",
+      priceLabel: "Special Offer",
+      priceHidden: true,
+      features: [
+        "Smile Design (10-12 porcelain veneers)",
+        "Luxury Suite Stay (entire treatment duration)",
+        "3 meals daily (breakfast, lunch & dinner)",
+        "Airport pickup in Guayaquil",
+        "Airport drop-off",
+        "Guayaquil city tour",
+        "Dedicated concierge service",
+        "All follow-up visits included"
+      ],
+      cta: "Ask for Details",
+      whatsappMsg: "Hi!%20I'm%20interested%20in%20the%20All-Inclusive%20Smile%20Design%20Package.%20Can%20you%20give%20me%20more%20details%20and%20pricing?"
+    },
+    treatments: [
+      {
+        name: "Porcelain Veneers (Emax)",
+        usa: "$1,500",
+        ecuador: "$350",
+        unit: "per tooth",
+        savings: "77%"
+      },
+      {
+        name: "Zirconia Crowns",
+        usa: "$1,800",
+        ecuador: "$400",
+        unit: "per tooth",
+        savings: "78%"
+      },
+      {
+        name: "All-on-4 Implants",
+        usa: "$28,000",
+        ecuador: "$8,500",
+        unit: "per arch",
+        savings: "70%"
+      },
+      {
+        name: "All-on-6 Implants",
+        usa: "$35,000",
+        ecuador: "$12,000",
+        unit: "per arch",
+        savings: "66%"
+      },
+      {
+        name: "Single Dental Implant",
+        usa: "$4,500",
+        ecuador: "$950",
+        unit: "per implant",
+        savings: "79%"
+      },
+      {
+        name: "Hollywood Smile (10-12 veneers)",
+        usa: "$18,000",
+        ecuador: "$4,200",
+        unit: "full smile",
+        savings: "77%"
+      },
+      {
+        name: "Invisalign / Clear Aligners",
+        usa: "$6,000",
+        ecuador: "$2,200",
+        unit: "full treatment",
+        savings: "63%"
+      },
+      {
+        name: "Teeth Whitening (Laser)",
+        usa: "$800",
+        ecuador: "$250",
+        unit: "per session",
+        savings: "69%"
+      },
+      {
+        name: "Root Canal Treatment",
+        usa: "$1,200",
+        ecuador: "$300",
+        unit: "per tooth",
+        savings: "75%"
+      },
+    ]
+  },
   footer: {
     ready: "Ready for your new smile? Let's plan your trip!",
     address: "Av. las Aguas 1106 entre Jiguas y Laureles, Guayaquil",
