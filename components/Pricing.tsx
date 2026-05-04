@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import { Check, DollarSign, ChevronDown, Calculator } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Dictionary } from "@/lib/dictionary";
 
 
-export const Pricing = ({ t, locale }: { t: any; locale: string }) => {
+export const Pricing = ({ t, locale }: { t: Dictionary; locale: string }) => {
   const [showPrices, setShowPrices] = useState(false);
   const content = t.pricing;
 
@@ -140,7 +141,7 @@ export const Pricing = ({ t, locale }: { t: any; locale: string }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {content.treatments.map((treatment: any, idx: number) => (
+                  {content.treatments.map((treatment, idx) => (
                     <tr 
                       key={idx} 
                       className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}

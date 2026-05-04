@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Dictionary } from "@/lib/dictionary";
 
-export const FAQ = ({ t }: { t: any }) => {
+export const FAQ = ({ t }: { t: Dictionary }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -18,7 +19,7 @@ export const FAQ = ({ t }: { t: any }) => {
         </div>
 
         <div className="space-y-4">
-          {t.faq.questions.map((item: any, idx: number) => (
+          {t.faq.questions.map((item, idx) => (
             <Reveal key={idx} delay={idx * 100}>
               <div
                 className={`rounded-2xl border transition-all duration-300 ${

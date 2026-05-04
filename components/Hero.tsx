@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { MessageCircle, ArrowRight } from "lucide-react";
+import { Dictionary } from "@/lib/dictionary";
 
-export const Hero = ({ t }: { t: any }) => {
+export const Hero = ({ t }: { t: Dictionary }) => {
 
   return (
     <section className="relative h-[620px] md:min-h-screen flex items-end md:items-center overflow-hidden bg-white">

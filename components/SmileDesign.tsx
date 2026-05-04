@@ -4,8 +4,9 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { ArrowLeftRight, ImageIcon } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Dictionary } from "@/lib/dictionary";
 
-export const SmileDesign = ({ t }: { t: any }) => {
+export const SmileDesign = ({ t }: { t: Dictionary }) => {
   const [isMounted, setIsMounted] = useState(false);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [beforeLoaded, setBeforeLoaded] = useState(false);

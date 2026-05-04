@@ -1,8 +1,9 @@
 import React from "react";
 import { ArrowRight, Smile, Syringe, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Dictionary } from "@/lib/dictionary";
 
-export const Services = ({ t }: { t: any }) => {
+export const Services = ({ t }: { t: Dictionary }) => {
 
   const services = [
     {

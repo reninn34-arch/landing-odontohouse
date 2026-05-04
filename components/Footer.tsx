@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { MapPin, Phone, Mail, CheckCircle, MessageCircle, Map } from "lucide-react";
+import { Dictionary } from "@/lib/dictionary";
 
 const WA_NUMBER = "593990904443";
 
@@ -53,7 +54,7 @@ function LazyMapEmbed() {
   );
 }
 
-export const Footer = ({ t, locale }: { t: any; locale: string }) => {
+export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
   const [form, setForm] = useState({ name: "", email: "", treatment: "" });
   const [sent, setSent] = useState(false);
 

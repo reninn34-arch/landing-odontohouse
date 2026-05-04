@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { ShieldCheck, Languages, Star } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Dictionary } from "@/lib/dictionary";
 
-export const MeetDoctor = ({ t }: { t: any }) => {
+export const MeetDoctor = ({ t }: { t: Dictionary }) => {
   const credentials = [
     { icon: <Star className="w-5 h-5" />, text: t.doctor.cred1 },
     { icon: <Languages className="w-5 h-5" />, text: t.doctor.cred2 },

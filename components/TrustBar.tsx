@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { ShieldCheck, Users, Award, Clock } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 import { Reveal } from "./Reveal";
+import { Dictionary } from "@/lib/dictionary";
 
 // ── Animated counter component ────────────────────────────────────────────────
 function AnimatedCounter({ target }: { target: number }) {
@@ -77,7 +78,7 @@ function AnimatedStat({
 }
 
 // ── TrustBar ──────────────────────────────────────────────────────────────────
-export const TrustBar = ({ t }: { t: any }) => {
+export const TrustBar = ({ t }: { t: Dictionary }) => {
   const { ref, inView } = useInView(0.2);
 
   const stats = [
@@ -114,7 +115,7 @@ export const TrustBar = ({ t }: { t: any }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
-          {stats.map((stat: any, idx: number) => (
+          {stats.map((stat, idx) => (
             <AnimatedStat
               key={idx}
               icon={stat.icon}

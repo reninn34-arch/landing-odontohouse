@@ -1,8 +1,9 @@
 import React from "react";
 import { Plane, PiggyBank, Award, Languages, HeartHandshake } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Dictionary } from "@/lib/dictionary";
 
-export const WhyEcuador = ({ t }: { t: any }) => {
+export const WhyEcuador = ({ t }: { t: Dictionary }) => {
   const cardBase =
     "transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02]";
 

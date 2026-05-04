@@ -1,8 +1,9 @@
 import React from "react";
 import { Star, Quote } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Dictionary } from "@/lib/dictionary";
 
-export const Testimonials = ({ t }: { t: any }) => {
+export const Testimonials = ({ t }: { t: Dictionary }) => {
   return (
     <section className="py-14 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,7 +15,7 @@ export const Testimonials = ({ t }: { t: any }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {t.testimonials.reviews.map((review: any, idx: number) => (
+          {t.testimonials.reviews.map((review, idx) => (
             <Reveal key={idx} delay={idx * 150}>
               <div
                 className={`rounded-3xl p-8 flex flex-col hover:-translate-y-2 hover:shadow-xl transition-all duration-500 h-full ${
