@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { Reveal } from "./Reveal";
+import { Reveal } from "../ui/Reveal";
 import { Dictionary } from "@/lib/dictionary";
 
 export const FAQ = ({ t }: { t: Dictionary }) => {

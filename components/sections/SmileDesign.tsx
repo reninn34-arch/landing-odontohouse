@@ -1,21 +1,15 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { ArrowLeftRight, ImageIcon } from "lucide-react";
-import { Reveal } from "./Reveal";
 import { Dictionary } from "@/lib/dictionary";
 
 export const SmileDesign = ({ t }: { t: Dictionary }) => {
-  const [isMounted, setIsMounted] = useState(false);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [beforeLoaded, setBeforeLoaded] = useState(false);
   const [afterLoaded, setAfterLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (containerRef.current) {
@@ -36,14 +30,6 @@ export const SmileDesign = ({ t }: { t: Dictionary }) => {
   };
 
   const imagesReady = beforeLoaded && afterLoaded;
-
-  if (!isMounted) {
-    return (
-      <section className="py-14 md:py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-[600px]" />
-      </section>
-    );
-  }
 
   return (
     <section className="py-14 md:py-24 bg-white overflow-hidden">

@@ -85,7 +85,6 @@ export const CookieConsent = () => {
       setShowBanner(true);
     } else {
       const parsed = JSON.parse(stored) as CookiePreferences;
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPreferences(parsed);
       if (parsed.analytics) {
         enableAnalytics();

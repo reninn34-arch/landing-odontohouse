@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import { ShieldCheck, Languages, Star } from "lucide-react";
-import { Reveal } from "./Reveal";
+import { Reveal } from "../ui/Reveal";
+import { waLink } from "@/lib/constants";
 import { Dictionary } from "@/lib/dictionary";
 
 export const MeetDoctor = ({ t }: { t: Dictionary }) => {
@@ -62,7 +63,7 @@ export const MeetDoctor = ({ t }: { t: Dictionary }) => {
             </div>
 
             <a
-              href={`https://wa.me/593990904443?text=${t.doctor.whatsappMsg}`}
+              href={waLink(t.doctor.whatsappMsg)}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-3 bg-[var(--color-brand-blue)] text-white px-8 py-4 rounded-full font-bold hover:bg-[var(--color-brand-gold)] hover:text-[var(--color-brand-blue)] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"

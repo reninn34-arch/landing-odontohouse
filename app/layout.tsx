@@ -5,14 +5,13 @@ import { cookies } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { en } from "@/locales/en";
-import { CookieConsent } from "@/components/CookieConsent";
+import { CookieConsent } from "@/components/layout/CookieConsent";
+import { BASE_URL } from "@/lib/constants";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
 });
-
-const BASE_URL = "https://odontohouse.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

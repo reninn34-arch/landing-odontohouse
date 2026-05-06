@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { Check, DollarSign, ChevronDown, Calculator } from "lucide-react";
-import { Reveal } from "./Reveal";
+import { Reveal } from "../ui/Reveal";
+import { waLink } from "@/lib/constants";
 import { Dictionary } from "@/lib/dictionary";
 
 
@@ -49,7 +50,7 @@ export const Pricing = ({ t, locale }: { t: Dictionary; locale: string }) => {
               </p>
               
               <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
-                <div className="group/price cursor-pointer" onClick={() => window.open(`https://wa.me/593990904443?text=${content.specialPackage.whatsappMsg}`, '_blank')}>
+                <div className="group/price cursor-pointer" onClick={() => window.open(waLink(content.specialPackage.whatsappMsg), '_blank')}>
                   <span className="text-white/60 text-sm">{content.specialPackage.priceLabel}</span>
                   <div className="text-4xl font-black text-[var(--color-brand-gold)] group-hover/price:scale-105 transition-all duration-300 flex items-center gap-2">
                     {content.specialPackage.priceHidden ? (
@@ -64,7 +65,7 @@ export const Pricing = ({ t, locale }: { t: Dictionary; locale: string }) => {
                   </span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 flex-1">
-                  {content.specialPackage.features.map((feature: any, idx: number) => (
+                  {content.specialPackage.features.map((feature: string, idx: number) => (
                     <div 
                       key={idx} 
                       className="flex items-center gap-2 text-white/90 group-hover/feature:text-white group-hover/feature:translate-x-1 transition-all duration-300"
@@ -77,7 +78,7 @@ export const Pricing = ({ t, locale }: { t: Dictionary; locale: string }) => {
               </div>
               
               <a 
-                href={`https://wa.me/593990904443?text=${content.specialPackage.whatsappMsg}`}
+                href={waLink(content.specialPackage.whatsappMsg)}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] font-bold px-8 py-4 rounded-full hover:scale-105 hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300 shadow-lg animate-bounce"
@@ -97,7 +98,7 @@ export const Pricing = ({ t, locale }: { t: Dictionary; locale: string }) => {
             {content.included}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {content.includedList.map((item: any, idx: number) => (
+            {content.includedList.map((item: string, idx: number) => (
               <div key={idx} className="flex items-center gap-2 text-white/90">
                 <Check className="w-4 h-4 text-[var(--color-brand-gold)] flex-shrink-0" />
                 <span className="text-sm">{item}</span>
@@ -172,7 +173,7 @@ export const Pricing = ({ t, locale }: { t: Dictionary; locale: string }) => {
         {/* CTA */}
         <div className="text-center mt-12">
           <a 
-            href={`https://wa.me/593990904443?text=${content.whatsappMsg}`}
+            href={waLink(content.whatsappMsg)}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-lg"

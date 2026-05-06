@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { waLink } from "@/lib/constants";
 
 export const FloatingWhatsApp = () => {
   const [visible, setVisible] = useState(false);
@@ -13,7 +14,7 @@ export const FloatingWhatsApp = () => {
 
   return (
     <a
-      href="https://wa.me/593990904443"
+      href={waLink()}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

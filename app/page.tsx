@@ -1,18 +1,18 @@
 import { cookies } from "next/headers";
 import { getDictionary, Locale } from "@/lib/dictionary";
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { TrustBar } from "@/components/TrustBar";
-import { SchemaOrg } from "@/components/SchemaOrg";
-import { SmileDesign } from "@/components/SmileDesign";
-import { Pricing } from "@/components/Pricing";
-import { Services } from "@/components/Services";
-import { WhyEcuador } from "@/components/WhyEcuador";
-import { MeetDoctor } from "@/components/MeetDoctor";
-import { Testimonials } from "@/components/Testimonials";
-import { FAQ } from "@/components/FAQ";
-import { Footer } from "@/components/Footer";
-import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { Navbar } from "@/components/layout/Navbar";
+import { Hero } from "@/components/sections/Hero";
+import { TrustBar } from "@/components/sections/TrustBar";
+import { SchemaOrg } from "@/components/seo/SchemaOrg";
+import { SmileDesign } from "@/components/sections/SmileDesign";
+import { Pricing } from "@/components/sections/Pricing";
+import { Services } from "@/components/sections/Services";
+import { WhyEcuador } from "@/components/sections/WhyEcuador";
+import { MeetDoctor } from "@/components/sections/MeetDoctor";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { FAQ } from "@/components/sections/FAQ";
+import { Footer } from "@/components/layout/Footer";
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 
 export default async function Home() {
   const cookieStore = await cookies();

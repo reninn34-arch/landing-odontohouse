@@ -1,6 +1,6 @@
 import React from "react";
 import { Star, Quote } from "lucide-react";
-import { Reveal } from "./Reveal";
+import { Reveal } from "../ui/Reveal";
 import { Dictionary } from "@/lib/dictionary";
 
 export const Testimonials = ({ t }: { t: Dictionary }) => {

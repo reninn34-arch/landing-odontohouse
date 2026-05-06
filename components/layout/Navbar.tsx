@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { Menu, X, MessageCircle } from "lucide-react";
+import { SOCIAL, waLink } from "@/lib/constants";
 
 const SocialIcon = ({ href, label, children, isScrolled }: {
   href: string; label: string; children: React.ReactNode; isScrolled: boolean;
@@ -68,9 +69,9 @@ export const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <SocialIcon href="https://www.instagram.com/odontohouse?igsh=djR1cmd1ejY4d2Zr" label={t.nav.followInstagram} isScrolled={isScrolled}><IGIcon /></SocialIcon>
-              <SocialIcon href="https://www.tiktok.com/@odontohouse.ec?_r=1&_t=ZS-95uAlkmVHRx" label={t.nav.followTikTok} isScrolled={isScrolled}><TTIcon /></SocialIcon>
-              <SocialIcon href="https://www.facebook.com/share/1E4Z3Cuzws/" label={t.nav.followFacebook} isScrolled={isScrolled}><FBIcon /></SocialIcon>
+              <SocialIcon href={SOCIAL.instagram} label={t.nav.followInstagram} isScrolled={isScrolled}><IGIcon /></SocialIcon>
+              <SocialIcon href={SOCIAL.tiktok} label={t.nav.followTikTok} isScrolled={isScrolled}><TTIcon /></SocialIcon>
+              <SocialIcon href={SOCIAL.facebook} label={t.nav.followFacebook} isScrolled={isScrolled}><FBIcon /></SocialIcon>
             </div>
             <div className={`w-px h-5 ${isScrolled ? "bg-gray-300" : "bg-white/20"}`} aria-hidden="true" />
             <div className={`flex items-center gap-1 p-1 rounded-full transition-colors ${isScrolled ? "bg-gray-100" : "bg-white/10 backdrop-blur-sm"}`} role="group" aria-label="Select language">
@@ -80,7 +81,7 @@ export const Navbar = () => {
               <button onClick={() => setLanguage("es")} aria-label="Switch to Spanish" aria-pressed={displayLang === "es"}
                 className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${displayLang === "es" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>ES</button>
             </div>
-            <a href="https://wa.me/593990904443?text=Hi!%20I'm%20interested%20in%20a%20virtual%20consultation" target="_blank" rel="noreferrer"
+            <a href={waLink("Hi! I'm interested in a virtual consultation")} target="_blank" rel="noreferrer"
               className="flex items-center gap-2 bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue)] px-5 py-2.5 rounded-full font-extrabold text-sm transition-all shadow-lg hover:scale-105">
               <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
               {t.nav.bookConsultation}
@@ -118,16 +119,16 @@ export const Navbar = () => {
               className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${displayLang === "es" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>ES</button>
           </div>
           <div className="border-t border-white/10 pt-6 flex flex-col gap-5">
-            <a href="https://wa.me/593990904443?text=Hi!%20I'm%20interested%20in%20a%20virtual%20consultation" target="_blank" rel="noreferrer"
+            <a href={waLink("Hi! I'm interested in a virtual consultation")} target="_blank" rel="noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] px-6 py-3.5 rounded-full font-extrabold text-sm w-full shadow-lg active:scale-95 transition-transform">
               <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
               {t.nav.bookConsultation}
             </a>
             <div className="flex items-center justify-center gap-4 pt-2">
-              <SocialIconLg href="https://www.instagram.com/odontohouse?igsh=djR1cmd1ejY4d2Zr" label={t.nav.followInstagram}><IGIcon /></SocialIconLg>
-              <SocialIconLg href="https://www.tiktok.com/@odontohouse.ec?_r=1&_t=ZS-95uAlkmVHRx" label={t.nav.followTikTok}><TTIcon /></SocialIconLg>
-              <SocialIconLg href="https://www.facebook.com/share/1E4Z3Cuzws/" label={t.nav.followFacebook}><FBIcon /></SocialIconLg>
+              <SocialIconLg href={SOCIAL.instagram} label={t.nav.followInstagram}><IGIcon /></SocialIconLg>
+              <SocialIconLg href={SOCIAL.tiktok} label={t.nav.followTikTok}><TTIcon /></SocialIconLg>
+              <SocialIconLg href={SOCIAL.facebook} label={t.nav.followFacebook}><FBIcon /></SocialIconLg>
             </div>
           </div>
         </div>

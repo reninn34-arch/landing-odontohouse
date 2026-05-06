@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next'
-
-const BASE_URL = 'https://odontohouse.com'
+import { BASE_URL } from '@/lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

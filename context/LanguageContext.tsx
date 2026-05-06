@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import { en } from "@/locales/en";
 import { es } from "@/locales/es";
 
@@ -23,13 +24,12 @@ export const LanguageProvider = ({
   initialLanguage: Language;
 }) => {
   const [language, setLanguageState] = useState<Language>(initialLanguage);
+  const router = useRouter();
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    // Update cookie so server can read it on next request
     document.cookie = `NEXT_LOCALE=${lang}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
-    // Refresh to apply changes server-side (optional but recommended for pure server components)
-    window.location.reload();
+    router.refresh();
   };
 
   const t = language === "en" ? en : es;

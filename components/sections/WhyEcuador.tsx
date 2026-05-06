@@ -1,6 +1,6 @@
 import React from "react";
 import { Plane, PiggyBank, Award, Languages, HeartHandshake } from "lucide-react";
-import { Reveal } from "./Reveal";
+import { Reveal } from "../ui/Reveal";
 import { Dictionary } from "@/lib/dictionary";
 
 export const WhyEcuador = ({ t }: { t: Dictionary }) => {

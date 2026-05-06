@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Odonto House — Landing Page
 
-## Getting Started
+Landing page for Odonto House, a dental tourism clinic in Guayaquil, Ecuador targeting US and Canadian patients.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router)
+- **React 19**
+- **Tailwind CSS v4**
+- **TypeScript** (strict mode)
+- **lucide-react** for icons
+
+## Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # Start dev server
+npm run build    # Production build
+npm run start    # Start production server
+npm run lint     # Run ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+├── layout.tsx          # Root layout (fonts, metadata, providers)
+├── page.tsx            # Home page
+├── globals.css         # Tailwind + custom theme
+├── privacy/page.tsx    # Privacy policy
+├── robots.ts           # robots.txt generator
+├── sitemap.ts          # sitemap.xml generator
+└── icon.svg            # Favicon
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+components/
+├── sections/           # Landing page sections
+│   ├── Hero.tsx
+│   ├── TrustBar.tsx
+│   ├── SmileDesign.tsx
+│   ├── Pricing.tsx
+│   ├── Services.tsx
+│   ├── WhyEcuador.tsx
+│   ├── MeetDoctor.tsx
+│   ├── Testimonials.tsx
+│   └── FAQ.tsx
+├── layout/             # Layout & navigation
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── FloatingWhatsApp.tsx
+│   └── CookieConsent.tsx
+├── ui/                 # Reusable UI utilities
+│   └── Reveal.tsx
+└── seo/                # SEO components
+    └── SchemaOrg.tsx
 
-## Learn More
+context/
+└── LanguageContext.tsx  # i18n provider (EN/ES)
 
-To learn more about Next.js, take a look at the following resources:
+hooks/
+└── useInView.ts        # IntersectionObserver hook
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+lib/
+├── constants.ts        # Centralized business constants
+└── dictionary.ts       # Server-side dictionary loader
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+locales/
+├── en.ts               # English translations
+└── es.ts               # Spanish translations
 
-## Deploy on Vercel
+public/
+├── hero.jpg            # Hero background
+├── doctora.jpg         # Doctor portrait
+├── logo-dark.png       # Logo
+├── before2.jpg         # Smile design before
+└── after2.jpg          # Smile design after
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## i18n
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The site is bilingual (English/Spanish). The locale is determined by:
+
+1. `NEXT_LOCALE` cookie (set by language switcher)
+2. `Accept-Language` header (via middleware)
+3. Default: `en`
+
+Switching language uses `router.refresh()` — no full page reload.
+
+## Business Constants
+
+Shared values (WhatsApp number, social URLs, base URL, map embed) are centralized in `lib/constants.ts`.
+
+## Key Features
+
+- **SEO**: JSON-LD structured data (Organization, Doctor, FAQ, Breadcrumb), sitemap, robots.txt, OpenGraph, Twitter cards
+- **Performance**: Optimized images (AVIF/WebP), lazy-loaded Google Maps, IntersectionObserver animations, `next/font` for Montserrat
+- **GDPR**: Cookie consent with granular preferences (Necessary, Analytics, Marketing)
+- **WhatsApp integration**: Contact form, floating button, CTA links
+- **Responsive**: Mobile-first with hamburger drawer navigation
+
+## Deployment
+
+Deployed on Vercel. Push to `main` to deploy.

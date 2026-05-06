@@ -1,4 +1,4 @@
-const BASE_URL = "https://odontohouse.com";
+import { BASE_URL, WA_PHONE } from "@/lib/constants";
 
 export const SchemaOrg = () => {
   const organizationSchema = {
@@ -15,7 +15,7 @@ export const SchemaOrg = () => {
       "addressRegion": "Guayas",
       "addressCountry": "EC",
     },
-    "telephone": "+593990904443",
+    "telephone": WA_PHONE,
     "email": "elenazbm@hotmail.com",
     "priceRange": "$$",
     "openingHoursSpecification": [
@@ -74,7 +74,7 @@ export const SchemaOrg = () => {
       "addressLocality": "Guayaquil",
       "addressCountry": "EC",
     },
-    "telephone": "+593990904443",
+    "telephone": WA_PHONE,
     "sameAs": "https://instagram.com/odontohouse",
     "memberOf": [
       {

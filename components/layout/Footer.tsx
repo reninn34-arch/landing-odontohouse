@@ -1,13 +1,9 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { useLanguage } from "@/context/LanguageContext";
 import { MapPin, Phone, Mail, CheckCircle, MessageCircle, Map } from "lucide-react";
 import { Dictionary } from "@/lib/dictionary";
-
-const WA_NUMBER = "593990904443";
-
-const MAP_SRC = "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3986.980601354422!2d-79.9140833!3d-2.1610833000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwMDknMzkuOSJTIDc5wrA1NCc1MC43Ilc!5e0!3m2!1ses!2sec!4v1777318549865!5m2!1ses!2sec";
+import { WA_NUMBER, MAP_SRC, SOCIAL } from "@/lib/constants";
 
 function LazyMapEmbed() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -185,7 +181,7 @@ export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
           <div className="flex items-center gap-5">
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/odontohouse?igsh=djR1cmd1ejY4d2Zr"
+              href={SOCIAL.instagram}
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
@@ -197,7 +193,7 @@ export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
             </a>
             {/* TikTok */}
             <a
-              href="https://www.tiktok.com/@odontohouse.ec?_r=1&_t=ZS-95uAlkmVHRx"
+              href={SOCIAL.tiktok}
               target="_blank"
               rel="noreferrer"
               aria-label="TikTok"
@@ -209,7 +205,7 @@ export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
             </a>
             {/* Facebook */}
             <a
-              href="https://www.facebook.com/share/1E4Z3Cuzws/"
+              href={SOCIAL.facebook}
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"

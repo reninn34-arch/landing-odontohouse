@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { Dictionary } from "@/lib/dictionary";
+import { waLink } from "@/lib/constants";
 
 export const Hero = ({ t }: { t: Dictionary }) => {
 
@@ -51,7 +52,7 @@ export const Hero = ({ t }: { t: Dictionary }) => {
               {t.hero.getQuote} <ArrowRight className="w-4 h-4 shrink-0" />
             </a>
             <a
-              href="https://wa.me/593990904443"
+              href={waLink()}
               target="_blank"
               rel="noreferrer"
               className="hidden md:flex shrink-0 border border-white/40 text-white hover:bg-white/10 px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition-all items-center justify-center gap-2 backdrop-blur-sm min-h-[48px]"

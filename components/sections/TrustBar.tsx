@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ShieldCheck, Users, Award, Clock } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
-import { Reveal } from "./Reveal";
+import { Reveal } from "../ui/Reveal";
 import { Dictionary } from "@/lib/dictionary";
 
 // ── Animated counter component ────────────────────────────────────────────────

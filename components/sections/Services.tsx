@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRight, Smile, Syringe, Sparkles } from "lucide-react";
-import { Reveal } from "./Reveal";
+import { Reveal } from "../ui/Reveal";
 import { Dictionary } from "@/lib/dictionary";
 
 export const Services = ({ t }: { t: Dictionary }) => {
@@ -41,7 +41,7 @@ export const Services = ({ t }: { t: Dictionary }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          {services.map((service: any, idx: number) => (
+          {services.map((service: { title: string; description: string; icon: React.ReactNode; tag: string }, idx: number) => (
             <Reveal key={idx} delay={idx * 150} className="h-full">
               <div
                 className="group h-full bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 flex flex-col relative overflow-hidden"
