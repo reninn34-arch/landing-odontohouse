@@ -86,7 +86,7 @@ export default async function RootLayout({
 }>) {
   const cookieStore = await cookies();
   const locale = (cookieStore.get("NEXT_LOCALE")?.value as "en" | "es") || "en";
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX";
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-VQCZE8V921";
 
   return (
     <html
