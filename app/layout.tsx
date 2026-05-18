@@ -42,10 +42,6 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: BASE_URL,
-    languages: {
-      en: BASE_URL,
-      es: BASE_URL,
-    },
   },
   openGraph: {
     title: "Odonto House | Dental Tourism Ecuador - Save 70% on Implants, Veneers & Smile Design",
@@ -96,10 +92,6 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="canonical" href={BASE_URL} />
-        <link rel="alternate" hrefLang="en" href={BASE_URL} />
-        <link rel="alternate" hrefLang="es" href={BASE_URL} />
-        <link rel="alternate" hrefLang="x-default" href={BASE_URL} />
         {/* Google Analytics */}
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
