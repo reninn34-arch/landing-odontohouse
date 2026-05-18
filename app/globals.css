@@ -50,44 +50,26 @@ html {
   animation-delay: 300ms;
 }
 
-@keyframes waveBack {
+@keyframes wave {
   from {
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(-1440px, 0, 0);
-  }
-}
-
-@keyframes waveMiddle {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-960px, 0, 0);
-  }
-}
-
-@keyframes waveFront {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-720px, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .animate-wave-back {
-  animation: waveBack 25s linear infinite;
+  animation: wave 25s linear infinite;
   will-change: transform;
 }
 
 .animate-wave-middle {
-  animation: waveMiddle 18s linear infinite;
+  animation: wave 27s linear infinite;
   will-change: transform;
 }
 
 .animate-wave-front {
-  animation: waveFront 12s linear infinite;
+  animation: wave 24s linear infinite;
   will-change: transform;
 }

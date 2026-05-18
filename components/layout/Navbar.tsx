@@ -119,8 +119,13 @@ export const Navbar = () => {
               className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${displayLang === "es" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>ES</button>
           </div>
           <div className="border-t border-white/10 pt-6 flex flex-col gap-5">
-            <a href={waLink(t.nav.whatsappMsg)} target="_blank" rel="noreferrer"
-              onClick={() => setIsMobileMenuOpen(false)}
+            <a href={waLink(t.nav.whatsappMsg)} target="_blank" rel="noopener noreferrer"
+              onClick={() => {
+                // Deferir el cierre del menú para evitar bloquear el hilo principal durante la navegación
+                setTimeout(() => {
+                  setIsMobileMenuOpen(false);
+                }, 150);
+              }}
               className="flex items-center justify-center gap-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] px-6 py-3.5 rounded-full font-extrabold text-sm w-full shadow-lg active:scale-95 transition-transform">
               <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
               {t.nav.bookConsultation}

@@ -63,11 +63,10 @@ export const SmileDesign = ({ t }: { t: Dictionary }) => {
           {/* After Image (Background — full width, color) */}
           <div className="absolute inset-0">
             <Image
-              src="/after2.jpg"
+              src="/after2.webp"
               alt="Smile after dental treatment"
               fill
-              sizes="(max-width: 768px) 100vw, 896px"
-              quality={75}
+              unoptimized
               className="object-cover"
               draggable={false}
               onError={() => setAfterLoaded(false)}
@@ -81,11 +80,10 @@ export const SmileDesign = ({ t }: { t: Dictionary }) => {
             style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
           >
             <Image
-              src="/before2.jpg"
+              src="/before2.webp"
               alt="Smile before dental treatment"
               fill
-              sizes="(max-width: 768px) 100vw, 896px"
-              quality={75}
+              unoptimized
               className="object-cover grayscale"
               draggable={false}
               onError={() => setBeforeLoaded(false)}

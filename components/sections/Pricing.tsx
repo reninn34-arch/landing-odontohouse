@@ -50,8 +50,13 @@ export const Pricing = ({ t, locale }: { t: Dictionary; locale: string }) => {
               </p>
               
               <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
-                <div className="group/price cursor-pointer" onClick={() => window.open(waLink(content.specialPackage.whatsappMsg), '_blank')}>
-                  <span className="text-white/60 text-sm">{content.specialPackage.priceLabel}</span>
+                <a 
+                  href={waLink(content.specialPackage.whatsappMsg)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/price cursor-pointer block focus:outline-none"
+                >
+                  <span className="text-white/60 text-sm block">{content.specialPackage.priceLabel}</span>
                   <div className="text-4xl font-black text-[var(--color-brand-gold)] group-hover/price:scale-105 transition-all duration-300 flex items-center gap-2">
                     {content.specialPackage.priceHidden ? (
                       <>
@@ -60,10 +65,10 @@ export const Pricing = ({ t, locale }: { t: Dictionary; locale: string }) => {
                       </>
                     ) : null}
                   </div>
-                  <span className="text-white/50 text-xs mt-1 group-hover/price:text-white/70 transition-colors">
+                  <span className="text-white/50 text-xs mt-1 block group-hover/price:text-white/70 transition-colors">
                     {locale === "en" ? "Click to inquire" : "Clic para consultar"}
                   </span>
-                </div>
+                </a>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 flex-1">
                   {content.specialPackage.features.map((feature: string, idx: number) => (
                     <div 
