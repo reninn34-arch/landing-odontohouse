@@ -61,7 +61,7 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
 
           <div className="flex items-center">
-            <Image src="/logo-dark.png" alt="Odonto House" width={160} height={80} priority fetchPriority="high" quality={60}
+            <Image src="/logo-dark.webp" alt="Odonto House" width={160} height={80} priority fetchPriority="high" unoptimized={true}
               className={`h-14 md:h-20 w-auto object-contain transition-all duration-500 ${isScrolled ? "" : "brightness-0 invert"}`}
               style={isScrolled ? {} : { filter: "brightness(0) invert(1)" }}
             />
@@ -104,7 +104,7 @@ export const Navbar = () => {
       <div id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu"
         className={`md:hidden fixed top-0 right-0 h-full w-[78vw] max-w-xs z-[58] bg-[var(--color-brand-blue)] shadow-2xl flex flex-col transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/10">
-          <Image src="/logo-dark.png" alt="Odonto House" width={120} height={40} fetchPriority="high" quality={60} className="h-10 w-auto object-contain brightness-0 invert" />
+          <Image src="/logo-dark.webp" alt="Odonto House" width={120} height={40} fetchPriority="high" unoptimized={true} className="h-10 w-auto object-contain brightness-0 invert" />
           <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu" className="text-white/60 hover:text-white transition-colors">
             <X className="w-6 h-6" aria-hidden="true" />
           </button>
