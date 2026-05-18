@@ -5,12 +5,14 @@ export const en = {
     followInstagram: "Follow us on Instagram",
     followTikTok: "Follow us on TikTok",
     followFacebook: "Follow us on Facebook",
+    whatsappMsg: "Hi! I'm interested in a virtual consultation.",
   },
   hero: {
     headline: "Premium Dental Care in Ecuador - Save 70%",
     subtitle: "Expert dentists in smile design, orthodontics & implants. Save up to 70% vs US with US-certified materials.",
     getQuote: "Get a Free Quote",
     chatWhatsApp: "Chat on WhatsApp",
+    whatsappMsg: "Hi! I saw your website and would like to chat about dental treatments.",
   },
   trustBar: {
     englishStaff: "English Speaking Staff",
@@ -239,5 +241,9 @@ export const en = {
     submit: "Request Free Consultation",
     whatsappOpened: "WhatsApp opened — we'll reply soon!",
     allRightsReserved: "Odonthouse Dental Clinic. All rights reserved.",
+  },
+  floatingWhatsApp: {
+    whatsappMsg: "Hi! I would like to make an inquiry.",
+    ariaLabel: "Chat on WhatsApp",
   }
 };

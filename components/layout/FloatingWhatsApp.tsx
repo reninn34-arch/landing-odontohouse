@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 import { waLink } from "@/lib/constants";
 
 export const FloatingWhatsApp = () => {
+  const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -14,10 +16,10 @@ export const FloatingWhatsApp = () => {
 
   return (
     <a
-      href={waLink()}
+      href={waLink(t.floatingWhatsApp.whatsappMsg)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp"
+      aria-label={t.floatingWhatsApp.ariaLabel}
       className={`fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#128C7E] transition-all duration-300 z-50 flex items-center justify-center hover:scale-110 active:scale-95 ${
         visible ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"
       }`}

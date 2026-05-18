@@ -81,7 +81,7 @@ export const Navbar = () => {
               <button onClick={() => setLanguage("es")} aria-label="Switch to Spanish" aria-pressed={displayLang === "es"}
                 className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${displayLang === "es" ? "bg-white text-[var(--color-brand-blue)] shadow" : isScrolled ? "text-gray-500 hover:text-gray-700" : "text-white/70 hover:text-white"}`}>ES</button>
             </div>
-            <a href={waLink("Hi! I'm interested in a virtual consultation")} target="_blank" rel="noreferrer"
+            <a href={waLink(t.nav.whatsappMsg)} target="_blank" rel="noreferrer"
               className="flex items-center gap-2 bg-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold-light)] text-[var(--color-brand-blue)] px-5 py-2.5 rounded-full font-extrabold text-sm transition-all shadow-lg hover:scale-105">
               <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
               {t.nav.bookConsultation}
@@ -119,7 +119,7 @@ export const Navbar = () => {
               className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${displayLang === "es" ? "bg-white text-[var(--color-brand-blue)]" : "text-white/60 hover:text-white"}`}>ES</button>
           </div>
           <div className="border-t border-white/10 pt-6 flex flex-col gap-5">
-            <a href={waLink("Hi! I'm interested in a virtual consultation")} target="_blank" rel="noreferrer"
+            <a href={waLink(t.nav.whatsappMsg)} target="_blank" rel="noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-blue)] px-6 py-3.5 rounded-full font-extrabold text-sm w-full shadow-lg active:scale-95 transition-transform">
               <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />

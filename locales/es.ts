@@ -7,12 +7,14 @@ export const es: typeof en = {
     followInstagram: "Síguenos en Instagram",
     followTikTok: "Síguenos en TikTok",
     followFacebook: "Síguenos en Facebook",
+    whatsappMsg: "¡Hola! Estoy interesado en una consulta virtual.",
   },
   hero: {
     headline: "Atención Dental Premium en Ecuador - Ahorra 70%",
     subtitle: "Dentistas expertos en diseño de sonrisa, ortodoncia e implantes. Ahorra hasta 70% vs USA con materiales certificados.",
     getQuote: "Obtén una Cotización Gratis",
     chatWhatsApp: "Chatea por WhatsApp",
+    whatsappMsg: "¡Hola! Vi su página web y me gustaría chatear sobre tratamientos dentales.",
   },
   trustBar: {
     englishStaff: "Personal Bilingüe (Inglés/Español)",
@@ -241,5 +243,9 @@ export const es: typeof en = {
     submit: "Solicitar Consulta Gratis",
     whatsappOpened: "WhatsApp abierto — ¡te responderemos pronto!",
     allRightsReserved: "Odonthouse Clínica Dental. Todos los derechos reservados.",
+  },
+  floatingWhatsApp: {
+    whatsappMsg: "¡Hola! Me gustaría hacer una consulta.",
+    ariaLabel: "Chatear por WhatsApp",
   }
 };
