@@ -5,51 +5,6 @@ import { MapPin, Phone, Mail, CheckCircle, MessageCircle, Map } from "lucide-rea
 import { Dictionary } from "@/lib/dictionary";
 import { WA_NUMBER, MAP_SRC, SOCIAL } from "@/lib/constants";
 
-function LazyMapEmbed() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsLoaded(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "200px" }
-    );
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-    return () => observer.disconnect();
-  }, []);
-
-  if (!isLoaded) {
-    return (
-      <div ref={containerRef} className="w-full h-full flex items-center justify-center bg-gray-800">
-        <div className="text-center">
-          <Map className="w-10 h-10 text-gray-400 mx-auto mb-2" />
-          <p className="text-gray-400 text-sm">Cargando mapa...</p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <iframe
-      src={MAP_SRC}
-      title="Odonto House location map"
-      width="100%"
-      height="100%"
-      style={{ border: 0 }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    />
-  );
-}
-
 export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
   const [form, setForm] = useState({ name: "", email: "", treatment: "" });
   const [sent, setSent] = useState(false);
@@ -95,9 +50,16 @@ export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
               </div>
             </div>
 
-            {/* Map - Lazy loaded on interaction */}
-            <div className="w-full h-64 bg-gray-700 rounded-lg overflow-hidden relative">
-              <LazyMapEmbed />
+            {/* Map - Native Lazy Loaded */}
+            <div className="w-full h-64 bg-gray-800 rounded-lg overflow-hidden relative shadow-inner">
+              <iframe
+                src={MAP_SRC}
+                title="Odonto House location map"
+                className="block w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 
