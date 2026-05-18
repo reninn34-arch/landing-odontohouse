@@ -11,19 +11,8 @@ export function useInView(threshold = 0.15) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    
-    // Check initial position (element is visible or above the viewport)
-    const checkVisibility = () => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top <= window.innerHeight) {
-        setInView(true);
-        return true;
-      }
-      return false;
-    };
 
-    if (checkVisibility()) return;
-
+    // High performance IntersectionObserver that runs off the main thread
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting || entry.boundingClientRect.top <= window.innerHeight) {
@@ -35,26 +24,17 @@ export function useInView(threshold = 0.15) {
     );
     observer.observe(el);
 
-    // Fallback for sudden scroll jumps (bfcache/navigation)
-    const handleScroll = () => {
-      if (checkVisibility()) {
-        window.removeEventListener("scroll", handleScroll);
-        observer.disconnect();
-      }
-    };
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    // Fallback for layout shifts / scroll restoration without events
+    // Single non-blocking fallback for navigation restoration or sudden layout shifts
     const timeoutId = setTimeout(() => {
-      if (checkVisibility()) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= window.innerHeight) {
+        setInView(true);
         observer.disconnect();
       }
-    }, 150);
+    }, 250);
 
     return () => {
       observer.disconnect();
-      window.removeEventListener("scroll", handleScroll);
       clearTimeout(timeoutId);
     };
   }, [threshold, pathname]); // Re-run when navigating back via Next.js router cache
